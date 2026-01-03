@@ -1,6 +1,7 @@
 html, body {
     height: 100%;
     overflow-x: hidden;
+    background-color: #000000;
 }
 
 
@@ -21,25 +22,21 @@ html, body {
     margin-left: 0px !important;
   }
   @media only screen and (max-width: 1365px) {
-    .paraw {
-        max-width: 90%;
-        left:5%;
-    }
-    .mobile-header {
-        display: 
-        block;
-    }
-    .caption {
-      margin: auto;
-    }
-    .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10 {
-      /* The image used */
-      margin: auto;
+    .overlay {
+      padding: 3rem;;
     }
   }
-  @media only screen and (min-device-width: 1366px) {
+  /* } */ 
+  /* @media only screen and (min-device-width: 1366px) { */
     .bg-1 {
-      background-image: url("https://cdn.discordapp.com/attachments/803804130182692965/1001553358802391190/Stickman.png");
+      background-image: url("images/firstimage_new.jpg");
+      background-position: 25% center;
+    
+      /* Full height */
+      min-height: 60%;
+    }
+    .bg-0 {
+      background-image: url("images/gtech.jpeg");
     
       /* Full height */
       min-height: 100%;
@@ -58,14 +55,14 @@ html, body {
       min-height: 100%;
     }
     .bg-4 {
-      background-image: url("https://cdn.discordapp.com/attachments/963292322123112448/990947815431745556/IMG_6576.jpg");
+      background-image: url("images/pqws.png");
     
       /* Full height */
       min-height: 100%;
     }
     .bg-5 {
-      background-image: url("images/FWPSGLogo.png");
-    
+      background-image: url("images/batcher.jpg");
+
       /* Full height */
       min-height: 100%;
     }
@@ -81,13 +78,25 @@ html, body {
           /* Full height */
           min-height: 100%;
       }
-    .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10 {
+      .bg-8 {
+          background-image: url("images/linked.png");
+      
+          /* Full height */
+          min-height: 100%;
+      }
+      .bg-9 {
+          background-image: url("images/calcmod.webp");
+
+          /* Full height */
+          min-height: 100%;
+      }
+    .bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10 {
       /* The image used */
-      position: relative;
+      /* position: relative; */
       
     
       /* Create the parallax scrolling effect */
-      background-attachment: fixed;
+      /* background-attachment: fixed; */
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
@@ -103,4 +112,64 @@ html, body {
       text-align: center;
       color: #000;
   }
-  }
+  /* } */
+@media only screen and (min-device-width: 1366px) {
+.card {
+  position: relative;
+  overflow: visible;
+}
+
+/* Expanding panel */
+.panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  transition:
+    width 0.45s cubic-bezier(.4,0,.2,1),
+    left 0.45s cubic-bezier(.4,0,.2,1),
+    right 0.45s cubic-bezier(.4,0,.2,1);
+  will-change: width, left, right;
+}
+
+/* RIGHT expansion */
+.expand-right:hover .panel {
+  width: 200%;
+}
+
+/* LEFT expansion */
+.expand-left .panel {
+  right: 0;
+  left: auto;
+}
+.expand-left:hover .panel {
+  width: 200%;
+}
+
+/* Overlay text — fills expanded panel */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  color: white;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Reveal text */
+.card:hover .overlay {
+  opacity: 1;
+}
+
+/* Layering */
+.card:hover {
+  z-index: 50;
+}
+}
