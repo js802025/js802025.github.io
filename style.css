@@ -173,3 +173,10 @@ html, body {
   z-index: 50;
 }
 }
+
+.cs2340 {
+    background-image: url("images/cs2340hero.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
