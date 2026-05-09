@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     overflow-x: hidden;
-    background-color: #000000;
+    background-color: #202020;
 }
 
 
@@ -29,8 +29,8 @@ html, body {
   /* } */ 
   /* @media only screen and (min-device-width: 1366px) { */
     .bg-1 {
-      background-image: url("images/firstimage_new.jpg");
-      background-position: 25% center;
+      background-image: url("images/firstimage-transformed.jpeg");
+      background-position: center 15% !important;
     
       /* Full height */
       min-height: 60%;
@@ -42,17 +42,18 @@ html, body {
       min-height: 100%;
     }
   
-    .bg-2 {
-      background-image: url("images/largecircle.png");
+  .bg-2 {
+      background-image: url("images/firstimage_new.jpg");
+      background-position: center 15% !important;
     
       /* Full height */
-      min-height: 100%;
+      min-height: 60%;
     }
     .bg-3 {
-      background-image: url("images/SkillduleIcon.jpg");
-    
-      /* Full height */
-      min-height: 100%;
+      background-image: url("images/just-background.png");
+    background-position: center 15% !important;
+    /* Full height */
+      min-height: 60%;
     }
     .bg-4 {
       background-image: url("images/pqws.png");
@@ -90,7 +91,13 @@ html, body {
           /* Full height */
           min-height: 100%;
       }
-    .bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10 {
+      .bg-chi {
+          background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/9b/Flag_of_Chicago%2C_Illinois.svg");
+
+          /* Full height */
+          min-height: 100%;
+      }
+    .bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10, .bg-chi {
       /* The image used */
       /* position: relative; */
       
@@ -180,3 +187,94 @@ html, body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+body {
+  margin: 0;
+  background: black;
+}
+
+.screen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.logo {
+  position: absolute;
+  width: 24vw;
+  height: 24vw;
+  color: black;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1vw solid black;
+  z-index: 0;
+
+  /* THIS enables tinting */
+  filter: hue-rotate(0deg);
+
+  /* glow effect like DVD */
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+
+  /* animation: bounce 6s linear infinite; */
+}
+
+/* Keyframes for bouncing */
+/* @keyframes bounce {
+  0%   { top: 0; left: 0; }
+  25%  { top: calc(100% - 60px); left: 25%; }
+  50%  { top: 50%; left: calc(100% - 120px); }
+  75%  { top: calc(100% - 60px); left: 75%; }
+  100% { top: 0; left: 0; }
+} */
+
+body {
+      margin: 0;
+      background: #f7f7f7;
+      font-family: sans-serif;
+    }
+
+    .game {
+      position: relative;
+      width: 100vw;
+      height: 400px;
+      border-bottom: 3px solid black;
+      overflow: hidden;
+    }
+
+    .dino {
+      position: absolute;
+      bottom: 0;
+      left: 50px;
+      width: 128px;
+      height: 128px;
+      border: 0.5vw solid black;
+      background: url("images/large_user.jpg") no-repeat center;
+      background-size: cover;
+    }
+
+    .cactus {
+      position: absolute;
+      bottom: 0;
+      width: 20px;
+      height: 40px;
+      background: green;
+      right: -20px;
+    }
+
+    .score {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 20px;
+    }
+
+    .game-over {
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      top: 80px;
+      font-size: 24px;
+      display: none;
+    }
