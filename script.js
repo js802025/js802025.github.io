@@ -1,208 +1,87 @@
-// ================= TV LOGO =================
-const logo = document.getElementById("logo");
 
-let x = 100, y = 100;
-const speed = 1.5;
-let dx = speed * (Math.random() < 0.5 ? 1 : -1);
-let dy = speed * (Math.random() < 0.5 ? 1 : -1);
 
-let tvAnimationId = null;
-let hue = Math.random() * 360;
+// ================= GITHUB CONTRIBUTION GRAPH =================
+async function loadContributionGraph() {
+  const container = document.getElementById("contribution-graph");
+  if (!container) return;
 
-function updateColor() {
-  hue = (hue + 60 + Math.random() * 60) % 360;
-  logo.style.filter = `hue-rotate(${hue}deg)`;
-  logo.style.boxShadow = `0 0 25px hsl(${hue}, 100%, 50%)`;
-}
+  try {
+    const response = await fetch("https://github-contributions-api.jogruber.de/v4/js802025");
+    const data = await response.json();
+    console.log("GitHub data:", data);
+    var sorted = data.contributions.sort((a, b) => new Date(a.date) - new Date(b.date));
 
-function startTV() {
-  if (tvAnimationId) return;
+    var endIndex = 0;
+    while (endIndex < data.contributions.length && new Date(data.contributions[endIndex].date) < new Date()) {
+      endIndex++;
+    }
+    const contributions = data.contributions.slice(endIndex - 371, endIndex);
+    console.log("Contributions count:", contributions.length, endIndex);
 
-  const screen = document.getElementById("tv-screen");
-
-  function loop() {
-    const rect = screen.getBoundingClientRect();
-
-    if (rect.width === 0 || rect.height === 0) {
-      tvAnimationId = null;
-      return;
+    const weeks = [];
+    for (let i = 0; i < contributions.length; i += 7) {
+      weeks.push(contributions.slice(i, i + 7));
     }
 
-    const maxX = rect.width - logo.offsetWidth;
-    const maxY = rect.height - logo.offsetHeight;
-    console.log(`Screen: ${rect.width}x${rect.height}, Logo: ${logo.offsetWidth}x${logo.offsetHeight}, Max: ${maxX}x${maxY}`);
-
-    x += dx;
-    y += dy;
-
-    if (x <= 0 || x >= maxX) {
-      dx *= -1;
-      updateColor();
-    }
-
-    if (y <= 0 || y >= maxY) {
-      dy *= -1;
-      updateColor();
-    }
-
-    logo.style.left = x + "px";
-    logo.style.top = y + "px";
-
-    tvAnimationId = requestAnimationFrame(loop);
-  }
-
-  tvAnimationId = requestAnimationFrame(loop);
-}
-
-function stopTV() {
-  if (tvAnimationId) {
-    cancelAnimationFrame(tvAnimationId);
-    tvAnimationId = null;
-  }
-}
-
-// ================= DINO =================
-const dino = document.getElementById("dino");
-const game = document.getElementById("game");
-const scoreEl = document.getElementById("score");
-const gameOverText = document.getElementById("gameOver");
-
-let yDino = 0, velocity = 0;
-let gravity = 0.8, jumping = false;
-
-let obstacles = [];
-let speedDino = 5;
-let score = 0;
-let gameOver = false;
-
-let dinoAnimationId = null;
-
-function jump() {
-  if (!jumping && !gameOver) {
-    velocity = 18;
-    jumping = true;
-  } else if (gameOver) {
-    restartDino();
-  }
-}
-
-document.addEventListener("keydown", e => {
-  if (e.code === "Space") jump();
-});
-document.addEventListener("click", jump);
-
-function spawnObstacle() {
-  if (gameOver) return;
-
-  const cactus = document.createElement("div");
-  cactus.classList.add("cactus");
-  game.appendChild(cactus);
-
-  obstacles.push({ el: cactus, x: window.innerWidth });
-
-  setTimeout(spawnObstacle, 1000 + Math.random() * 1500);
-}
-
-function isColliding(a, b) {
-  const ar = a.getBoundingClientRect();
-  const br = b.getBoundingClientRect();
-  return !(ar.right < br.left || ar.left > br.right || ar.bottom < br.top || ar.top > br.bottom);
-}
-
-function startDino() {
-  if (dinoAnimationId) return;
-
-  function loop() {
-    if (gameOver) {
-      dinoAnimationId = null;
-      return;
-    }
-
-    velocity -= gravity;
-    yDino += velocity;
-
-    if (yDino <= 0) {
-      yDino = 0;
-      jumping = false;
-    }
-
-    dino.style.bottom = yDino + "px";
-
-    obstacles.forEach((obs, i) => {
-      obs.x -= speedDino;
-      obs.el.style.left = obs.x + "px";
-
-      if (isColliding(dino, obs.el)) {
-        endGame();
+    for (let dayOfWeek = 0; dayOfWeek < 7; dayOfWeek++) {
+      for (let week = 0; week < weeks.length; week++) {
+        const day = weeks[week][dayOfWeek];
+        const cell = document.createElement("div");
+        cell.className = `contrib-cell contrib-level-${day ? day.level : 0}`;
+        if (day) {
+          cell.title = `${day.date}: ${day.count} contribution${day.count !== 1 ? 's' : ''}`;
+        }
+        container.appendChild(cell);
       }
+    }
+  } catch (error) {
+    console.error("Failed to load contribution graph:", error);
+    // Fallback: generate random pattern
+    for (let i = 0; i < 371; i++) {
+      const cell = document.createElement("div");
+      const level = Math.floor(Math.random() * 5);
+      cell.className = `contrib-cell contrib-level-${level}`;
+      container.appendChild(cell);
+    }
+  }
+}
 
-      if (obs.x < -20) {
-        obs.el.remove();
-        obstacles.splice(i, 1);
+async function getLiveActivity() {
+  try {
+    const response = await fetch("https://api.github.com/gists/87faa18d1808b0282fd22c7d7f54ff02", {
+      headers: {
+        "Accept": "application/vnd.github.v3+json",
+        "X-GitHub-Api-Version": "2026-03-10"
       }
     });
-
-    score++;
-    scoreEl.textContent = score;
-
-    dinoAnimationId = requestAnimationFrame(loop);
-  }
-
-  spawnObstacle();
-  dinoAnimationId = requestAnimationFrame(loop);
-}
-
-function stopDino() {
-  if (dinoAnimationId) {
-    cancelAnimationFrame(dinoAnimationId);
-    dinoAnimationId = null;
-  }
-}
-
-function endGame() {
-  gameOver = true;
-  gameOverText.style.display = "block";
-}
-
-function restartDino() {
-  obstacles.forEach(o => o.el.remove());
-  obstacles = [];
-
-  score = 0;
-  yDino = 0;
-  velocity = 0;
-  gameOver = false;
-
-  gameOverText.style.display = "none";
-  startDino();
-}
-
-// ================= GAME SWITCHER =================
-function stopAll() {
-  stopTV();
-  stopDino();
-}
-
-function playGame() {
-  stopAll();
-
-  const games = ["tv-screen", "dino-game"];
-  const choice = games[Math.floor(Math.random() * games.length)];
-
-  document.getElementById("default-header").classList.add("hidden");
-
-  games.forEach(id => {
-    document.getElementById(id).classList.toggle("hidden", id !== choice);
-  });
-
-  setTimeout(() => {
-    if (choice === "tv-screen") {
-      const rect = document.getElementById("tv-screen").getBoundingClientRect();
-      x = Math.random() * (rect.width - 256);
-      y = Math.random() * (rect.height - 256);
-      startTV();
-    } else {
-      startDino();
+    const gist = await response.json();
+    const currentActivity = JSON.parse(gist.files["activities.json"].content).activities.at(-1);
+    const activityElement = document.getElementById("live-activity");
+    const statusImg = document.getElementById("status-img");
+    const statusText = document.getElementById("status-text");
+    const statusTime = document.getElementById("status-time");
+    console.log("Current activity:", currentActivity);
+    if (currentActivity) {
+      statusImg.src = currentActivity.imageURL;
+      statusText.textContent = currentActivity.status;
+      const timeAgo = new Date(currentActivity.date);
+      const now = new Date();
+      const diffMinutes = Math.floor((now - timeAgo) / 60000);
+      if (diffMinutes < 60) {
+        statusTime.textContent = `${diffMinutes} minutes ago`;
+      } else if (diffMinutes < 1440) {
+        statusTime.textContent = `${Math.floor(diffMinutes / 60)} hours ago`;
+      } else if (diffMinutes < 10080) {
+        statusTime.textContent = `${Math.floor(diffMinutes / 1440)} days ago`;
+      } else {
+        activityElement.style.display = "none";
+      }
     }
-  }, 100);
+  } catch (error) {
+    console.error("Failed to get live activity:", error);
+  }
 }
+
+
+loadContributionGraph();
+getLiveActivity();

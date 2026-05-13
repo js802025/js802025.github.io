@@ -1,7 +1,7 @@
 html, body {
     height: 100%;
     overflow-x: hidden;
-    background-color: #202020;
+    background: #0d1117;
 }
 
 
@@ -43,17 +43,43 @@ html, body {
     }
   
   .bg-2 {
-      background-image: url("images/firstimage_new.jpg");
+      background: #18a2d9;
+background: linear-gradient(90deg,rgba(24, 162, 217, 1) 0%, rgba(158, 87, 199, 1) 41%, rgba(237, 83, 83, 1) 100%);
       background-position: center 15% !important;
-    
-      /* Full height */
-      min-height: 60%;
+
     }
+
+  .github-bg {
+    background: #0d1117;
+    min-height: 350px;
+  }
+
+  .contribution-graph {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(53, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 4px;
+    padding: 10px;
+    opacity: 0.5;
+  }
+
+  .contrib-cell {
+    border-radius: 3px;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .contrib-level-0 { background-color: #161b22; }
+  .contrib-level-1 { background-color: #0e4429; }
+  .contrib-level-2 { background-color: #006d32; }
+  .contrib-level-3 { background-color: #26a641; }
+  .contrib-level-4 { background-color: #39d353; }
     .bg-3 {
       background-image: url("images/just-background.png");
     background-position: center 15% !important;
-    /* Full height */
-      min-height: 60%;
+
     }
     .bg-4 {
       background-image: url("images/pqws.png");
@@ -96,6 +122,10 @@ html, body {
 
           /* Full height */
           min-height: 100%;
+      }
+      .bg-blur {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(1px);
       }
     .bg-0, .bg-1, .bg-2, .bg-3, .bg-4, .bg-5, .bg-6, .bg-7, .bg-8, .bg-9, .bg-10, .bg-chi {
       /* The image used */
@@ -190,7 +220,7 @@ html, body {
 
 body {
   margin: 0;
-  background: black;
+  /* background: black; */
 }
 
 .screen {
@@ -231,7 +261,7 @@ body {
 
 body {
       margin: 0;
-      background: #f7f7f7;
+      /* background: #f7f7f7; */
       font-family: sans-serif;
     }
 

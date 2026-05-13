@@ -8,93 +8,104 @@
 
     <link href="style.css" rel="stylesheet">
 </head>
-  <body class="w-full">
-    <div id="default-header" class="mx-auto my-auto flex items-center justify-center text-center text-white w-full p-4 bg-2 rounded-lg shadow-lg max-h-1/5 screen relative">
-      <div class>
+  <body class="w-full bg-slate-800">
+    <div class="github-bg w-full flex items-center justify-center relative overflow-hidden ">
+    <div class="contribution-graph" id="contribution-graph"></div>
+    <div id="default-header" class="mx-auto my-auto flex items-center justify-between text-center text-white w-7/8 p-4 relative">
+      <div class="bg-blur h-full rounded-lg md:w-5/12 p-8">
+        <div class="flex items-center justify-center h-full">
+          <img src="images/large_user.jpg" alt="Background Image" id="logo" class="rounded-full shadow-lg w-1/4 mx-4 border-6 border-black">
+          <img src="https://avatars.githubusercontent.com/u/30957566?v=256size=256" alt="Background Image" id="logo" class="rounded-full shadow-lg w-1/4 mx-4 border-6 border-black">
+        </div>
       <h1 class="text-3xl font-bold z-10">Jack Adee</h1>
+      <p class="text-lg z-10">Computer Science at <img src="images/gt.png" alt="Georgia Tech Logo" class="w-1/8  mx-auto inline"> </p>
       </div>
-      <div class="bg-black/30 rounded-lg shadow-lg">
-        <a onclick="playGame()" class="absolute bottom-3 left-3  text-white text-xl font-bold">Play Game</a>
-      </div>
-    </div>
-    <div id="tv-screen" class="mx-auto my-auto flex items-center justify-center text-center text-white w-full p-4 bg-1 rounded-lg shadow-lg max-h-1/5 screen hidden">
-      <div class>
-      <img src="images/large_user.jpg" alt="Background Image" id="logo" class=" logo rounded-full shadow-lg w-1/4 mx-auto mb-4">
-      <h1 class="text-3xl font-bold z-10">Jack Adee</h1>
-      </div>
-    </div>
-    <div id="dino-game" class="hidden bg-3">
-    <div class="game" id="game">
-  <div class="dino rounded-full" id="dino"></div>
-  <div class="score" id="score">0</div>
-  <div class="game-over" id="gameOver">Game Over - Press Space</div>
-</div>
-</div>
-<div id="immaculate-grid" class="bg-3 hidden">
-    <div class="grid grid-cols-4 w-1/3 mx-auto">
-      <div class="rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Immaculate Grid</h2>
-      </div>
-      <div class="bg-0 rounded-lg shadow-lg">
-      </div>
-      <div class="bg-4 rounded-lg shadow-lg p-4">
+      <div class="bg-blur h-1/4 rounded-lg w-1/4 p-8 md:block hidden" id="live-activity">
+          <div class="flex items-center h-full">
+            <img id="status-img" src="https://avatars.githubusercontent.com/u/30957566?v=128size=128" width="128px" height="128px" alt="Background Image" id="logo" class="rounded-md shadow-lg mx-4 border-6 border-black">
+            <div class="text-left">
+              <h2 class="text-2xl font-bold z-10">Currently Working On</h2>
+              <p id="status-text"></p>
+              <p id="status-time" class="text-sm text-gray-400"></p>
+          </div>
 
       </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 4</h2>
-        <p>Content for grid item 4.</p>
       </div>
-       <div class="bg-chi rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 1</h2>
-        <p>Content for grid item 1.</p>
+      <!-- <div class="bg-black/30 rounded-lg shadow-lg">
+        <a onclick="playGame()" class="absolute bottom-3 left-3  text-white text-xl font-bold">Play Game</a>
+      </div> -->
+    </div>
+    </div>
+   
+<div id="featured" class="text-white w-full flex flex-col items-center justify-center p-4">
+    <h2 class="text-2xl font-bold mb-4 text-center">Featured Projects</h2>
+    <div id="calcmod" class="md:flex">
+      <div class="md:w-1/2">
+        <img src="images/calc/logo.png" class="w-1/2 md:w-1/4 mx-auto p-4"/>
+        <p>CalcMod is an open-source Minecraft mod for technical Minecrafters. Bring the power of calculation to your Minecraft chat with CalcMod! Enjoy features from simple calculations to advanced tools for optimizing gameplay. CalcMod currently has over 2.4M downloads and counting!</p>
+        <div class="flex mt-4 mx-auto justify-center">
+          <a href="https://modrinth.com/mod/calcmod" class="text-green-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idF9vcrTIs/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1774871139614" alt="Modrinth" class="w-5 h-5 mr-2"/>Modrinth</a>
+          <a href="https://github.com/js802025/calcmod" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1719469980739" alt="GitHub" class="w-5 h-5 mr-2"/>GitHub</a>
+        </div>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 2</h2>
-        <p>Content for grid item 2.</p>
+      <div class="md:w-1/2 md:flex">
+        <img src="images/calc/basic.png" class="md:w-1/2 p-4"/>
+        <img src="images/calc/craft.png" class="md:w-1/2 p-4"/>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg p-4">
-        <h2 class="text-xl font-bold mb-2">Grid Item 3</h2>
-        <p>Content for grid item 3.</p>
+      
+    </div>
+    <div id="batcher" class="flex flex-col-reverse md:flex-row">
+      
+      <div class="md:w-1/2 md:flex">
+        <img src="images/batcher.png" class="md:w-1/2 p-4 mx-auto"/>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 4</h2>
-        <p>Content for grid item 4.</p>
+      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
+        <h2 class="text-xl mx-auto font-bold  text-center">Batcher</h2>
+        <p>Batcher is a Tesseract OCR powered importer for Direct Mail donations. Simply upload your images and let Batcher do the rest! Batcher helps streamline the donation processing workflow by automatically scanning the crucial information from the remits and importing it into your system.</p>
+        <div class="flex mt-4 mx-auto justify-center">
+          <h2 class="text-lg font-bold">Contact Us to Get Started!</h2>
+        </div>
       </div>
-       <div class="bg-9 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 1</h2>
-        <p>Content for grid item 1.</p>
+    </div>
+     <div id="gt-schedule-ai" class="md:flex">
+      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
+        <h2 class="text-xl mx-auto font-bold  text-center">Skilldule AI</h2>
+        <p>Skilldule AI is an innovative course planning tool for college students. It uses a RAG (Retrieval-Augmented Generation) approach to provide personalized schedule recommendations based on individual student needs and academic goals.</p>
+        <div class="flex mt-4 mx-auto justify-center">
+                  <h2 class="text-lg font-bold">Reach out to bring your school into the future of education!</h2>
+
+        </div>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 2</h2>
-        <p>Content for grid item 2.</p>
+      <div class="md:w-1/2 md:flex">
+        <img src="images/skillduleai/landing.png" class="md:w-1/2 p-4"/>
+        <img src="images/skillduleai/schedule.png" class="md:w-1/2 p-4"/>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg p-4">
-        <h2 class="text-xl font-bold mb-2">Grid Item 3</h2>
-        <p>Content for grid item 3.</p>
+      
+    </div>
+    <div id="gtbus" class="flex flex-col-reverse md:flex-row">
+      
+      <div class="md:w-1/2 md:flex">
+        <img src="images/gtbus.png" class="md:w-1/2 p-4 mx-auto"/>
       </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 4</h2>
-        <p>Content for grid item 4.</p>
-      </div>
-       <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 1</h2>
-        <p>Content for grid item 1.</p>
-      </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 2</h2>
-        <p>Content for grid item 2.</p>
-      </div>
-      <div class="bg-4 rounded-lg shadow-lg p-4">
-        <h2 class="text-xl font-bold mb-2">Grid Item 3</h2>
-        <p>Content for grid item 3.</p>
-      </div>
-      <div class="bg-4 rounded-lg shadow-lg">
-        <h2 class="text-xl font-bold mb-2">Grid Item 4</h2>
-        <p>Content for grid item 4.</p>
+      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
+        <h2 class="text-xl mx-auto font-bold  text-center">GTBus</h2>
+        <p>GTBus is a smart bus tracking tool for college students. It provides real-time notifications on bus locations so you never miss your bus.</p>
+        <div class="flex mt-4 mx-auto justify-center">
+          <a href="https://gtbus.app" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">GTBus</a>
+        </div>
       </div>
     </div>
 </div>
-</div>
+<div id="contact" class="w-full flex flex-col items-center justify-center p-4">
+  <h2 class="text-2xl font-bold mb-4 text-center text-white">Contact Me</h2>
+  <div class=" rounded-lg w-full md:w-1/2 p
+-8 text-center flex justify-between items-center">
+    <a href="https://linkedin.com/in/jack-adee" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">
+</svg>
+LinkedIn</a>
+    <a href="https://github.com/js802025" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1719469980739" alt="GitHub" class="w-5 h-5 mr-2"/>GitHub</a>
+    <a href="mailto:jadee6@gatech.edu" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">
+Email</a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="script.js"></script>
