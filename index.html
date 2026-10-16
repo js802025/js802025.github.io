@@ -1,113 +1,288 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jack Adee | CS at GT</title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <link href="style.css" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jack Adee | CS at Georgia Tech</title>
+  <meta name="description" content="Jack Adee studies computer science at Georgia Tech and builds CalcMod, SideFlick, Skilldule AI, GTBus and Batcher.">
+  <meta name="theme-color" content="#55FFFF">
+  <script>document.documentElement.classList.add("js")</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <link href="home.css" rel="stylesheet">
 </head>
-  <body class="w-full bg-slate-800">
-    <div class="github-bg w-full flex items-center justify-center relative overflow-hidden ">
-    <div class="contribution-graph" id="contribution-graph"></div>
-    <div id="default-header" class="mx-auto my-auto flex items-center justify-between text-center text-white w-7/8 p-4 relative">
-      <div class="bg-blur h-full rounded-lg md:w-5/12 p-8">
-        <div class="flex items-center justify-center h-full">
-          <img src="images/large_user.jpg" alt="Background Image" id="logo" class="rounded-full shadow-lg w-1/4 mx-4 border-6 border-black">
-          <img src="https://avatars.githubusercontent.com/u/30957566?v=256size=256" alt="Background Image" id="logo" class="rounded-full shadow-lg w-1/4 mx-4 border-6 border-black">
-        </div>
-      <h1 class="text-3xl font-bold z-10">Jack Adee</h1>
-      <p class="text-lg z-10">Computer Science at <img src="images/gt.png" alt="Georgia Tech Logo" class="w-1/8  mx-auto inline"> </p>
-      </div>
-      <div class="bg-blur h-1/4 rounded-lg w-1/4 p-8 md:block hidden" id="live-activity">
-          <div class="flex items-center h-full">
-            <img id="status-img" src="https://avatars.githubusercontent.com/u/30957566?v=128size=128" width="128px" height="128px" alt="Background Image" id="logo" class="rounded-md shadow-lg mx-4 border-6 border-black">
-            <div class="text-left">
-              <h2 class="text-2xl font-bold z-10">Currently Working On</h2>
-              <p id="status-text"></p>
-              <p id="status-time" class="text-sm text-gray-400"></p>
+<body>
+
+<section class="history" id="history" aria-labelledby="hero-title">
+  <div class="stage">
+    <header class="bar">
+      <a class="wordmark" href="#history">Jack Adee</a>
+      <nav aria-label="Main">
+        <a href="#calcmod">CalcMod</a>
+        <a href="#sideflick">SideFlick</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a class="btn" href="https://github.com/js802025">GitHub</a>
+      </nav>
+    </header>
+
+    <h1 class="split" id="hero-title" aria-label="Jack Adee builds tools">
+      <span class="half half-l" aria-hidden="true">Jack Adee</span>
+      <span class="half half-r" aria-hidden="true">builds tools</span>
+    </h1>
+
+    <div class="reel-window">
+      <ol class="reel" aria-label="My GitHub profile, then my contributions year by year">
+        <li class="frame frame-profile">
+          <button class="mosaic" type="button" aria-label="Show my GitHub profile picture">
+            <img src="images/web/avatar.jpg" alt="" width="460" height="460">
+            <span class="mosaic-cells" aria-hidden="true"></span>
+          </button>
+          <div class="profile">
+            <a class="yr" href="https://github.com/js802025">@js802025</a>
+            <p class="profile-bio" id="gh-bio">Coder, Creator or maybe just a random kid who has harnessed the power of code to do his work for him.</p>
+            <p class="cnt"><b id="gh-repos">31</b> public repos</p>
           </div>
+        </li>
+        <li class="frame">
+          <div class="frame-head"><span class="yr">2026</span><span class="cnt"><b data-total>342</b> contributions so far</span></div>
+          <div class="graph" data-graph="2026" role="img" aria-label="Daily contributions in 2026"></div>
+          <p class="frame-note">Built GTBus and automated CalcMod ports with calcmod-updater.</p>
+        </li>
+        <li class="frame">
+          <div class="frame-head"><span class="yr">2025</span><span class="cnt"><b data-total>80</b> contributions</span></div>
+          <div class="graph" data-graph="2025" role="img" aria-label="Daily contributions in 2025"></div>
+          <p class="frame-note">Started computer science at Georgia Tech.</p>
+        </li>
+        <li class="frame">
+          <div class="frame-head"><span class="yr">2024</span><span class="cnt"><b data-total>72</b> contributions</span></div>
+          <div class="graph" data-graph="2024" role="img" aria-label="Daily contributions in 2024"></div>
+          <p class="frame-note">Worked on Witty-Dashboard for FTC robotics and a backup mod for Fabric.</p>
+        </li>
+        <li class="frame">
+          <div class="frame-head"><span class="yr">2023</span><span class="cnt"><b data-total>202</b> contributions</span></div>
+          <div class="graph" data-graph="2023" role="img" aria-label="Daily contributions in 2023"></div>
+          <p class="frame-note">Built fwp-lunchbot and patched crafting in Masa’s itemscroller mod.</p>
+        </li>
+        <li class="frame">
+          <div class="frame-head"><span class="yr">2022</span><span class="cnt"><b data-total>318</b> contributions</span></div>
+          <div class="graph" data-graph="2022" role="img" aria-label="Daily contributions in 2022"></div>
+          <p class="frame-note">Started CalcMod in July, then skilldule-template and this website.</p>
+        </li>
+      </ol>
+    </div>
 
-      </div>
-      </div>
-      <!-- <div class="bg-black/30 rounded-lg shadow-lg">
-        <a onclick="playGame()" class="absolute bottom-3 left-3  text-white text-xl font-bold">Play Game</a>
-      </div> -->
+    <div class="support">
+      <p>Computer science at Georgia Tech. Tools for Minecraft players, movie nights, students and nonprofits.</p>
+      <p class="now" id="live-activity" hidden>Right now: <b id="status-text"></b><span id="status-time"></span></p>
     </div>
-    </div>
-   
-<div id="featured" class="text-white w-full flex flex-col items-center justify-center p-4">
-    <h2 class="text-2xl font-bold mb-4 text-center">Featured Projects</h2>
-    <div id="calcmod" class="md:flex">
-      <div class="md:w-1/2">
-        <img src="images/calc/logo.png" class="w-1/2 md:w-1/4 mx-auto p-4"/>
-        <p>CalcMod is an open-source Minecraft mod for technical Minecrafters. Bring the power of calculation to your Minecraft chat with CalcMod! Enjoy features from simple calculations to advanced tools for optimizing gameplay. CalcMod currently has over 2.4M downloads and counting!</p>
-        <div class="flex mt-4 mx-auto justify-center">
-          <a href="https://modrinth.com/mod/calcmod" class="text-green-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idF9vcrTIs/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1774871139614" alt="Modrinth" class="w-5 h-5 mr-2"/>Modrinth</a>
-          <a href="https://github.com/js802025/calcmod" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1719469980739" alt="GitHub" class="w-5 h-5 mr-2"/>GitHub</a>
-        </div>
-      </div>
-      <div class="md:w-1/2 md:flex">
-        <img src="images/calc/basic.png" class="md:w-1/2 p-4"/>
-        <img src="images/calc/craft.png" class="md:w-1/2 p-4"/>
-      </div>
-      
-    </div>
-    <div id="batcher" class="flex flex-col-reverse md:flex-row">
-      
-      <div class="md:w-1/2 md:flex">
-        <img src="images/batcher.png" class="md:w-1/2 p-4 mx-auto"/>
-      </div>
-      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
-        <h2 class="text-xl mx-auto font-bold  text-center">Batcher</h2>
-        <p>Batcher is a Tesseract OCR powered importer for Direct Mail donations. Simply upload your images and let Batcher do the rest! Batcher helps streamline the donation processing workflow by automatically scanning the crucial information from the remits and importing it into your system.</p>
-        <div class="flex mt-4 mx-auto justify-center">
-          <h2 class="text-lg font-bold">Contact Us to Get Started!</h2>
-        </div>
-      </div>
-    </div>
-     <div id="gt-schedule-ai" class="md:flex">
-      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
-        <h2 class="text-xl mx-auto font-bold  text-center">Skilldule AI</h2>
-        <p>Skilldule AI is an innovative course planning tool for college students. It uses a RAG (Retrieval-Augmented Generation) approach to provide personalized schedule recommendations based on individual student needs and academic goals.</p>
-        <div class="flex mt-4 mx-auto justify-center">
-                  <h2 class="text-lg font-bold">Reach out to bring your school into the future of education!</h2>
+  </div>
+</section>
 
-        </div>
-      </div>
-      <div class="md:w-1/2 md:flex">
-        <img src="images/skillduleai/landing.png" class="md:w-1/2 p-4"/>
-        <img src="images/skillduleai/schedule.png" class="md:w-1/2 p-4"/>
-      </div>
-      
-    </div>
-    <div id="gtbus" class="flex flex-col-reverse md:flex-row">
-      
-      <div class="md:w-1/2 md:flex">
-        <img src="images/gtbus.png" class="md:w-1/2 p-4 mx-auto"/>
-      </div>
-      <div class="md:w-1/2 md:flex md:flex-col md:items-center md:justify-center">
-        <h2 class="text-xl mx-auto font-bold  text-center">GTBus</h2>
-        <p>GTBus is a smart bus tracking tool for college students. It provides real-time notifications on bus locations so you never miss your bus.</p>
-        <div class="flex mt-4 mx-auto justify-center">
-          <a href="https://gtbus.app" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">GTBus</a>
-        </div>
-      </div>
-    </div>
-</div>
-<div id="contact" class="w-full flex flex-col items-center justify-center p-4">
-  <h2 class="text-2xl font-bold mb-4 text-center text-white">Contact Me</h2>
-  <div class=" rounded-lg w-full md:w-1/2 p
--8 text-center flex justify-between items-center">
-    <a href="https://linkedin.com/in/jack-adee" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">
-</svg>
-LinkedIn</a>
-    <a href="https://github.com/js802025" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex"><img src="https://cdn.brandfetch.io/idZAyF9rlg/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1719469980739" alt="GitHub" class="w-5 h-5 mr-2"/>GitHub</a>
-    <a href="mailto:jadee6@gatech.edu" target="_blank" class="text-blue-500 hover:text-blue-700  font-bold py-2 px-4 rounded mx-2 flex">
-Email</a>
+<section class="showcase" id="calcmod" aria-labelledby="calcmod-title" data-feature="craft">
+  <div class="showcase-bg" aria-hidden="true">
+    <img data-feature="craft" src="images/web/calc/craft.jpg" alt="" width="2400" height="1500" loading="lazy">
+    <img data-feature="syntax" src="images/web/calc/syntax.jpg" alt="" width="2400" height="1500" loading="lazy">
+    <img data-feature="portal" src="images/web/calc/portal.jpg" alt="" width="2400" height="1500" loading="lazy">
+    <img data-feature="travel" src="images/web/calc/travel.jpg" alt="" width="2400" height="1500" loading="lazy">
+    <img data-feature="hopper" src="images/web/calc/hopper.jpg" alt="" width="2400" height="1500" loading="lazy">
+  </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+  <div class="calc-card" data-reveal>
+    <h2 id="calcmod-title">CalcMod</h2>
+    <p>A calculator in your Minecraft chat.</p>
+    <p class="calc-fact"><span id="calc-loaders">Fabric, Forge, NeoForge, Paper and Quilt</span>. Minecraft <span id="calc-versions">1.12.2 to 26.3</span>.</p>
+    <div class="calc-shot">
+      <img data-feature="craft" src="images/web/calc/craft-sm.jpg" alt="/calc craft listing the ingredients for 1,280 redstone comparators" width="900" height="563" loading="lazy">
+      <img data-feature="syntax" src="images/web/calc/syntax-sm.jpg" alt="/calc solving (312-87)/2 in chat" width="900" height="563" loading="lazy">
+      <img data-feature="portal" src="images/web/calc/portal-sm.jpg" alt="/calc overworld converting nether coordinates beside a portal" width="900" height="563" loading="lazy">
+      <img data-feature="travel" src="images/web/calc/travel-sm.jpg" alt="/calc dist measuring a minecart route" width="900" height="563" loading="lazy">
+      <img data-feature="hopper" src="images/web/calc/hopper-sm.jpg" alt="/calc secondstohopperclock sizing a hopper clock" width="900" height="563" loading="lazy">
+    </div>
+    <a class="btn btn-full" href="https://modrinth.com/mod/calcmod">Get it on Modrinth</a>
+    <a class="quiet-link" href="https://github.com/js802025/calcmod">Source on GitHub</a>
+  </div>
+
+  <form class="chat" id="chat" data-ui autocomplete="off" aria-label="Try /calc">
+    <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
+    <ul class="chat-suggest" aria-label="Commands to try">
+      <li><button type="button" data-try="(312-87)/2">(312-87)/2</button></li>
+      <li><button type="button" data-try="3sb + 20stack">3sb + 20stack</button></li>
+      <li><button type="button" data-try="nether 984 848">nether 984 848</button></li>
+      <li><button type="button" data-try="dist 15 14 156 -440">dist 15 14 156 -440</button></li>
+      <li><button type="button" data-try="secondstohopperclock 33">secondstohopperclock 33</button></li>
+    </ul>
+    <label class="chat-input">
+      <span class="visually-hidden">Command</span>
+      <span class="chat-cmd" aria-hidden="true">/calc</span>
+      <input id="chat-input" name="expr" type="text" placeholder="(312-87)/2" spellcheck="false" autocapitalize="off">
+    </label>
+  </form>
+</section>
+
+<section class="downloads" id="downloads" aria-labelledby="downloads-title">
+  <h2 id="downloads-title" data-reveal>CalcMod downloads</h2>
+  <div class="figure-block" data-reveal>
+    <p class="figure"><span id="dl-figure">3.49</span><sup>M</sup></p>
+    <p class="figure-caption"><span class="pulse" aria-hidden="true"></span><b id="dl-exact">3,497,057</b> on Modrinth, and <span id="dl-followers">785</span> followers.</p>
+  </div>
+</section>
+
+<section class="sideflick" id="sideflick" aria-labelledby="sideflick-title">
+  <div class="sf-top">
+    <div class="sf-head" data-reveal>
+      <img class="sf-icon" src="images/web/sideflick/icon.png" alt="SideFlick logo" width="240" height="240" loading="lazy">
+      <h2 id="sideflick-title">Trivia synced to the scene</h2>
+    </div>
+    <div class="sf-copy" data-reveal>
+      <p>Pin questions to a film’s timeline with the SideFlick Chrome extension. When that scene plays, the question lands on every player’s phone, with a live leaderboard.</p>
+      <ul class="sf-facts">
+        <li><b>15</b> question types, from Click Now to Drink When</li>
+        <li>Players join with a <b>6-digit</b> code, no app</li>
+        <li>Works on YouTube, Netflix and Hulu</li>
+      </ul>
+      <a class="btn sf-btn" href="https://www.sideflick.lol/">Host a game</a>
+    </div>
+  </div>
+
+  <div class="sf-screens" data-reveal>
+    <img class="sf-game" src="images/web/sideflick/gameplay.webp" alt="A SideFlick true or false question on a player’s screen, worth 100 points" width="1800" height="995" loading="lazy">
+    <img class="sf-ext" src="images/web/sideflick/extension.webp" alt="The SideFlick extension pinning a question at 32:39, with a grid of question types" width="680" height="1556" loading="lazy">
+  </div>
+
+  <div class="sf-film" data-ui aria-label="A sample game: questions pinned along a film">
+    <ol class="sf-cards" aria-live="polite">
+      <li class="sf-card" data-at="0.16" style="--pin: 16%; --tone: var(--sf-bubblegum)">
+        <span class="sf-type">True / False</span>
+        <p>The heist crew splits up before the vault opens.</p>
+      </li>
+      <li class="sf-card" data-at="0.42" style="--pin: 42%; --tone: var(--sf-sky)">
+        <span class="sf-type">Guess Time</span>
+        <p>How many minutes until the next explosion?</p>
+      </li>
+      <li class="sf-card sf-card-play" data-at="0.7" style="--pin: 70%; --tone: var(--sf-popcorn)">
+        <span class="sf-type">01:12:44, question 7</span>
+        <p>What does he say next?</p>
+        <div class="sf-options">
+          <button type="button">“I’ll be back.”</button>
+          <button type="button" data-right>“Get to the chopper!”</button>
+          <button type="button">“Stick around.”</button>
+        </div>
+      </li>
+      <li class="sf-card" data-at="0.9" style="--pin: 90%; --tone: var(--sf-mint)">
+        <span class="sf-type">Drink When</span>
+        <p>Someone says the title of the movie.</p>
+      </li>
+    </ol>
+    <div class="sf-track">
+      <span class="sf-fill"></span>
+      <span class="sf-pin" style="--pin: 16%; --tone: var(--sf-bubblegum)"></span>
+      <span class="sf-pin" style="--pin: 42%; --tone: var(--sf-sky)"></span>
+      <span class="sf-pin" style="--pin: 70%; --tone: var(--sf-popcorn)"></span>
+      <span class="sf-pin" style="--pin: 90%; --tone: var(--sf-mint)"></span>
+      <span class="sf-head-time" id="sf-time">00:00:00</span>
+    </div>
+    <p class="sf-score" id="sf-score">0 pts</p>
+  </div>
+</section>
+
+<section class="work" id="projects" aria-labelledby="projects-title">
+  <h2 id="projects-title">Other projects</h2>
+  <div class="work-grid">
+    <ul class="names">
+      <li id="skilldule" class="name is-active">
+        <div class="name-pic"><img src="images/web/landing.jpg" alt="Skilldule AI landing page with a schedule preview" width="1704" height="1090" loading="lazy"></div>
+        <div class="name-row"><a class="name-link" href="mailto:jadee6@gatech.edu?subject=Skilldule%20AI%20for%20our%20school">Skilldule AI</a><span class="name-kind">Course planner</span></div>
+        <p class="name-text">Upload a DegreeWorks audit and get ranked schedules back, then refine them in chat.</p>
+      </li>
+      <li id="gtbus" class="name">
+        <div class="name-pic"><img src="images/web/gtbus.jpg" alt="GTBus map of Georgia Tech with every route and live bus positions" width="1839" height="1093" loading="lazy"></div>
+        <div class="name-row"><a class="name-link" href="https://gtbus.org">GTBus</a><span class="name-kind">gtbus.org</span></div>
+        <p class="name-text">Every Georgia Tech route on one map, with live buses and a heads-up before yours arrives.</p>
+      </li>
+      <li id="batcher" class="name">
+        <div class="name-pic name-pic-drawn">
+          <div class="remit" data-ui role="img" aria-label="Illustration of Batcher reading the gift amount, donor address and scanline off a mailed reply slip">
+            <div class="slip">
+              <div class="slip-main">
+                <span class="tear">Tear here</span>
+                <b class="slip-appeal">Together, we keep the pantry full. Will you help, Jane?</b>
+                <p class="slip-yes"><b>YES,</b> I will make a tax-deductible gift to feed families this winter.</p>
+                <div class="slip-row">
+                  <div class="enclosed ocr">
+                    <span class="enc-title">Enclosed is:</span>
+                    <span class="enc-grid"><span class="box">$30</span><span class="box on">$20</span><span class="box">$15</span><span class="box">$____</span></span>
+                    <span class="respond">Respond by: <i>Nov 30, 2026</i></span>
+                  </div>
+                  <p class="addr ocr">Jane Doe<br>120 Peachtree St<br>Atlanta, GA 30303</p>
+                </div>
+                <span class="scanline ocr">41 0938217 52K&nbsp;&nbsp;&nbsp;18F 4402B 7</span>
+              </div>
+              <div class="slip-side">
+                <span>Give online at</span>
+                <b>example.org/give</b>
+                <span class="qr" aria-hidden="true"></span>
+              </div>
+              <span class="scan"></span>
+            </div>
+            <table class="rows">
+              <thead><tr><th>Donor</th><th>Address</th><th>Gift</th><th>Scanline</th></tr></thead>
+              <tbody><tr><td>Jane Doe</td><td>120 Peachtree St, Atlanta</td><td>$20.00</td><td>410938217</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="name-row"><a class="name-link" href="mailto:jadee6@gatech.edu?subject=Batcher">Batcher</a><span class="name-kind">Donation importer</span></div>
+        <p class="name-text">Scan a stack of mailed remits and Tesseract OCR turns them into donation records, ready to import.</p>
+      </li>
+      <li class="name">
+        <div class="name-pic"><img src="images/web/calc/slash-calc.jpg" alt="The /calc wordmark in Minecraft’s pixel font" width="1440" height="720" loading="lazy"></div>
+        <div class="name-row"><a class="name-link" href="https://github.com/js802025/calcmod-updater">CalcMod Updater</a><span class="name-kind">GitHub Action</span></div>
+        <p class="name-text">Prepares each new CalcMod port automatically when Minecraft ships a version.</p>
+      </li>
+    </ul>
+    <div class="preview" aria-hidden="true">
+      <div class="preview-frame"></div>
+      <p class="preview-text"></p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact" aria-labelledby="contact-title">
+  <img class="contact-bg" src="images/web/tech-tower.jpg" alt="Tech Tower and the Georgia Tech campus at sunset, midtown Atlanta behind" width="1454" height="1040" loading="lazy">
+  <canvas class="contact-pixels" aria-hidden="true"></canvas>
+  <div class="visit" data-reveal>
+    <h2 id="contact-title">Say hello</h2>
+    <p>Georgia Institute of Technology<br>Atlanta, Georgia</p>
+    <dl>
+      <div><dt>Email</dt><dd><a href="mailto:jadee6@gatech.edu">jadee6@gatech.edu</a></dd></div>
+      <div><dt>GitHub</dt><dd><a href="https://github.com/js802025">js802025</a></dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/jack-adee">jack-adee</a></dd></div>
+    </dl>
+    <a class="btn btn-full btn-tall" href="mailto:jadee6@gatech.edu">Email Jack</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <img class="foot-photo" src="images/web/jack.jpg" alt="Portrait of Jack Adee" width="800" height="800" loading="lazy">
+  <div class="foot-menu">
+    <a class="wordmark" href="#history">Jack Adee</a>
+    <ul class="menu">
+      <li><a href="#history">History</a></li>
+      <li><a href="#calcmod">CalcMod</a></li>
+      <li><a href="#sideflick">SideFlick</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="https://github.com/js802025">GitHub</a></li>
+    </ul>
+    <div class="foot-blocks">
+      <p>Write to<br><a href="mailto:jadee6@gatech.edu">jadee6@gatech.edu</a></p>
+      <p>Elsewhere<br><a href="https://linkedin.com/in/jack-adee">LinkedIn</a>, <a href="https://modrinth.com/mod/calcmod">Modrinth</a></p>
+    </div>
+    <p class="legal">© 2026 Jack Adee. Tech Tower photo by Georgia Tech Facilities.</p>
+  </div>
+</footer>
+
+<script src="home.js"></script>
 </body>
 </html>
