@@ -143,12 +143,15 @@ button { font: inherit; color: inherit; }
   gap: clamp(10px, 1.2vw, 18px);
   aspect-ratio: 16 / 10;
   overflow: hidden;
+  container-type: inline-size;
 }
 .frame-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
 @media (min-width: 900px) {
   /* Poster order: the note up top, the squares, then the year set large at the foot */
   .frame-head { order: 3; align-items: flex-end; }
-  .frame-head .yr { font-size: var(--step-display); line-height: .85; }
+  /* sized from the frame itself, so the count always keeps room beside it */
+  .frame-head .yr { flex: none; font-size: min(var(--step-display), 16cqw); line-height: .85; }
+  .frame-head .cnt { min-width: 0; text-align: right; }
   .frame-note { order: -1; }
 }
 .yr {
