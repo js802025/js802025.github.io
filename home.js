@@ -573,6 +573,34 @@ sf.querySelectorAll(".sf-options button").forEach(button => {
   });
 });
 
+// A status too long for the strip scrolls like a board message (or wraps, with reduced motion)
+let statusText = "";
+function fitStatus() {
+  const el = document.getElementById("status-text");
+  if (!statusText) return;
+  el.classList.remove("scroll", "wrap");
+  el.textContent = statusText;
+  if (el.scrollWidth <= el.clientWidth + 1) return;
+  if (reduceMotion) { el.classList.add("wrap"); return; }
+  const track = document.createElement("span");
+  track.className = "marquee";
+  const a = document.createElement("span");
+  a.textContent = statusText;
+  const b = a.cloneNode(true);
+  b.setAttribute("aria-hidden", "true");
+  track.append(a, b);
+  el.textContent = "";
+  el.appendChild(track);
+  el.classList.add("scroll");
+  const dist = a.offsetWidth + parseFloat(getComputedStyle(track).columnGap || 0);
+  track.style.setProperty("--marquee-dist", `${dist}px`);
+  // about 45px a second, plus the hold at the start
+  track.style.setProperty("--marquee-dur", `${(dist / 45 / 0.8).toFixed(2)}s`);
+}
+window.addEventListener("resize", fitStatus);
+// the LED face is wider than its fallback, so measure again once it has loaded
+if (document.fonts) document.fonts.ready.then(fitStatus);
+
 // ================= LIVE ACTIVITY =================
 // The status I post from my phone (a gist), with its picture, shown in the top strip
 async function getLiveActivity() {
@@ -597,13 +625,15 @@ async function getLiveActivity() {
       const img = new Image(32, 32);
       img.className = "status-img";
       img.alt = "";
+      img.addEventListener("load", fitStatus);
       img.src = current.imageURL;
       box.querySelector(".status-row").prepend(img);
     }
-    document.getElementById("status-text").textContent = current.status;
+    statusText = current.status;
     document.getElementById("status-time").textContent = ago;
     box.title = ago ? `${current.status}, ${ago}` : current.status;
     box.hidden = false;
+    fitStatus();
   } catch (error) {
     console.error("Failed to get live activity:", error);
   }
