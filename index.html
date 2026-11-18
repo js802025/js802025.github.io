@@ -4,138 +4,170 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jack Adee | CS at Georgia Tech</title>
-  <meta name="description" content="Jack Adee studies computer science at Georgia Tech and builds CalcMod, SideFlick, Skilldule AI, GTBus and Batcher.">
-  <meta name="theme-color" content="#55FFFF">
+  <meta name="description" content="Jack Adee studies computer science at Georgia Tech and builds CalcMod, SideFlick, DoomLearner, GTBus, Skilldule AI and Batcher.">
+  <meta name="theme-color" content="#0e0e10">
   <script>document.documentElement.classList.add("js")</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Unbounded:wght@800&family=Onest:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Doto:wght@700;900&family=Overpass:wght@400;600;800&display=swap" rel="stylesheet">
   <link href="home.css" rel="stylesheet">
 </head>
 <body>
 
-<section class="history" id="history" aria-labelledby="hero-title">
-  <div class="stage">
-    <header class="bar">
-      <a class="wordmark" href="#history">Jack Adee</a>
-      <nav aria-label="Main">
-        <a href="#calcmod">CalcMod</a>
-        <a href="#sideflick">SideFlick</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a class="btn" href="https://github.com/js802025">GitHub</a>
-      </nav>
-    </header>
+<header class="strip">
+  <a class="wordmark" href="#top">Jack Adee</a>
+  <p class="status" id="live-activity" hidden>
+    <span class="status-label"><span class="status-word">Currently</span><span class="status-time" id="status-time"></span></span>
+    <span class="status-row"><b class="status-text led" id="status-text"></b></span>
+  </p>
+  <nav aria-label="Main">
+    <a href="#board">Projects</a>
+    <a href="#contact">Contact</a>
+    <a href="https://github.com/js802025">GitHub</a>
+  </nav>
+</header>
 
-    <h1 class="split" id="hero-title" aria-label="Jack Adee builds tools">
-      <span class="half half-l" aria-hidden="true">Jack Adee</span>
-      <span class="half half-r" aria-hidden="true">builds tools</span>
-    </h1>
+<main id="top">
 
-    <div class="reel-window">
-      <ol class="reel" aria-label="My GitHub profile, then my contributions year by year">
-        <li class="frame frame-profile">
-          <button class="mosaic" type="button" aria-label="Show my GitHub profile picture">
-            <img src="images/web/avatar.jpg" alt="" width="460" height="460">
-            <span class="mosaic-cells" aria-hidden="true"></span>
-          </button>
-          <div class="profile">
-            <a class="yr" href="https://github.com/js802025">@js802025</a>
-            <p class="profile-bio" id="gh-bio">Coder, Creator or maybe just a random kid who has harnessed the power of code to do his work for him.</p>
-            <p class="cnt"><b id="gh-repos">31</b> public repos</p>
-          </div>
-        </li>
-        <li class="frame">
-          <div class="frame-head"><span class="yr">2026</span><span class="cnt"><b data-total>342</b> contributions so far</span></div>
-          <div class="graph" data-graph="2026" role="img" aria-label="Daily contributions in 2026"></div>
-          <p class="frame-note">Built GTBus and automated CalcMod ports with calcmod-updater.</p>
-        </li>
-        <li class="frame">
-          <div class="frame-head"><span class="yr">2025</span><span class="cnt"><b data-total>80</b> contributions</span></div>
-          <div class="graph" data-graph="2025" role="img" aria-label="Daily contributions in 2025"></div>
-          <p class="frame-note">Started computer science at Georgia Tech.</p>
-        </li>
-        <li class="frame">
-          <div class="frame-head"><span class="yr">2024</span><span class="cnt"><b data-total>72</b> contributions</span></div>
-          <div class="graph" data-graph="2024" role="img" aria-label="Daily contributions in 2024"></div>
-          <p class="frame-note">Worked on Witty-Dashboard for FTC robotics and a backup mod for Fabric.</p>
-        </li>
-        <li class="frame">
-          <div class="frame-head"><span class="yr">2023</span><span class="cnt"><b data-total>202</b> contributions</span></div>
-          <div class="graph" data-graph="2023" role="img" aria-label="Daily contributions in 2023"></div>
-          <p class="frame-note">Built fwp-lunchbot and patched crafting in Masa’s itemscroller mod.</p>
-        </li>
-        <li class="frame">
-          <div class="frame-head"><span class="yr">2022</span><span class="cnt"><b data-total>318</b> contributions</span></div>
-          <div class="graph" data-graph="2022" role="img" aria-label="Daily contributions in 2022"></div>
-          <p class="frame-note">Started CalcMod in July, then skilldule-template and this website.</p>
-        </li>
-      </ol>
-    </div>
-
-    <div class="support">
-      <p>Computer science at Georgia Tech. Tools for Minecraft players, movie nights, students and nonprofits.</p>
-      <p class="now" id="live-activity" hidden>Right now: <b id="status-text"></b><span id="status-time"></span></p>
-    </div>
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-copy">
+    <h1 id="hero-title">Jack Adee</h1>
+    <p class="hero-line">I build tools people actually use. Computer science at Georgia Tech.</p>
   </div>
+
+  <figure class="panel" aria-labelledby="panel-cap">
+    <figcaption class="panel-head" id="panel-cap">
+      <span class="led led-lg" id="panel-year">2026</span>
+      <span class="panel-count"><b class="led" id="panel-total">342</b> contributions <span id="panel-sofar">so far</span></span>
+      <a class="panel-link" href="https://github.com/js802025">@js802025</a>
+    </figcaption>
+    <div class="graph" id="graph" role="img" aria-label="Daily GitHub contributions this year"></div>
+  </figure>
 </section>
 
-<section class="showcase" id="calcmod" aria-labelledby="calcmod-title" data-feature="craft">
-  <div class="showcase-bg" aria-hidden="true">
-    <img data-feature="craft" src="images/web/calc/craft.jpg" alt="" width="2400" height="1500" loading="lazy">
-    <img data-feature="syntax" src="images/web/calc/syntax.jpg" alt="" width="2400" height="1500" loading="lazy">
-    <img data-feature="portal" src="images/web/calc/portal.jpg" alt="" width="2400" height="1500" loading="lazy">
-    <img data-feature="travel" src="images/web/calc/travel.jpg" alt="" width="2400" height="1500" loading="lazy">
-    <img data-feature="hopper" src="images/web/calc/hopper.jpg" alt="" width="2400" height="1500" loading="lazy">
+<section class="board" id="board" aria-labelledby="board-title">
+  <div class="board-head">
+    <h2 id="board-title">Projects</h2>
+    <p class="board-cols" aria-hidden="true"><span>Line</span><span>Status</span><span>Goes to</span></p>
   </div>
+  <ol class="rows">
+    <li class="row" style="--line: var(--l-calc)">
+      <a href="#calcmod" aria-label="CalcMod, a calculator in Minecraft chat. 3.49 million downloads.">
+        <span class="bullet">C</span>
+        <span class="row-name"><b data-flap>CalcMod</b><span>Calculator in Minecraft chat</span></span>
+        <span class="row-status led" data-flap id="row-dl">3.49M DL</span>
+        <span class="row-to">modrinth.com</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-sf)">
+      <a href="#sideflick" aria-label="SideFlick, movie trivia synced to the scene. Live.">
+        <span class="bullet">S</span>
+        <span class="row-name"><b data-flap>SideFlick</b><span>Trivia synced to the scene</span></span>
+        <span class="row-status led" data-flap>LIVE</span>
+        <span class="row-to">sideflick.lol</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-doom); --on-line: var(--white)">
+      <a href="#doomlearner" aria-label="DoomLearner, lecture reels in your feed. Waitlist open.">
+        <span class="bullet">D</span>
+        <span class="row-name"><b data-flap>DoomLearner</b><span>Your lectures, in the feed you scroll</span></span>
+        <span class="row-status led" data-flap>WAITLIST</span>
+        <span class="row-to">doomlearner.com</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-bus)">
+      <a href="#gtbus" aria-label="GTBus, every Georgia Tech bus on one map. Live.">
+        <span class="bullet">G</span>
+        <span class="row-name"><b data-flap>GTBus</b><span>Every GT bus on one map</span></span>
+        <span class="row-status led" data-flap>LIVE</span>
+        <span class="row-to">gtbus.org</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-sk)">
+      <a href="#skilldule" aria-label="Skilldule AI, a course planner. Demo on request.">
+        <span class="bullet">K</span>
+        <span class="row-name"><b data-flap>Skilldule AI</b><span>Schedules from a DegreeWorks audit</span></span>
+        <span class="row-status led" data-flap>ON REQUEST</span>
+        <span class="row-to">Email</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-bat)">
+      <a href="#batcher" aria-label="Batcher, a donation importer. Demo on request.">
+        <span class="bullet">B</span>
+        <span class="row-name"><b data-flap>Batcher</b><span>Mailed remits to donation records</span></span>
+        <span class="row-status led" data-flap>ON REQUEST</span>
+        <span class="row-to">Email</span>
+      </a>
+    </li>
+    <li class="row" style="--line: var(--l-calc)">
+      <a href="#updater" aria-label="CalcMod Updater, a GitHub Action. Running.">
+        <span class="bullet">U</span>
+        <span class="row-name"><b data-flap>CalcMod Updater</b><span>Ports CalcMod to each new version</span></span>
+        <span class="row-status led" data-flap>RUNNING</span>
+        <span class="row-to">github.com</span>
+      </a>
+    </li>
+  </ol>
+</section>
 
-  <div class="calc-card" data-reveal>
+<section class="calc" id="calcmod" aria-labelledby="calcmod-title" data-feature="syntax" style="--line: var(--l-calc)">
+  <header class="line-head">
+    <span class="bullet bullet-lg" aria-hidden="true">C</span>
     <h2 id="calcmod-title">CalcMod</h2>
     <p>A calculator in your Minecraft chat.</p>
-    <p class="calc-fact"><span id="calc-loaders">Fabric, Forge, NeoForge, Paper and Quilt</span>. Minecraft <span id="calc-versions">1.12.2 to 26.3</span>.</p>
-    <div class="calc-shot">
-      <img data-feature="craft" src="images/web/calc/craft-sm.jpg" alt="/calc craft listing the ingredients for 1,280 redstone comparators" width="900" height="563" loading="lazy">
-      <img data-feature="syntax" src="images/web/calc/syntax-sm.jpg" alt="/calc solving (312-87)/2 in chat" width="900" height="563" loading="lazy">
-      <img data-feature="portal" src="images/web/calc/portal-sm.jpg" alt="/calc overworld converting nether coordinates beside a portal" width="900" height="563" loading="lazy">
-      <img data-feature="travel" src="images/web/calc/travel-sm.jpg" alt="/calc dist measuring a minecart route" width="900" height="563" loading="lazy">
-      <img data-feature="hopper" src="images/web/calc/hopper-sm.jpg" alt="/calc secondstohopperclock sizing a hopper clock" width="900" height="563" loading="lazy">
+  </header>
+
+  <div class="calc-grid">
+    <div class="calc-screen">
+      <div class="calc-shots">
+        <img data-feature="craft" src="images/web/calc/craft.jpg" alt="/calc craft listing the ingredients for 1,280 redstone comparators" width="2400" height="1500" loading="lazy">
+        <img data-feature="syntax" src="images/web/calc/syntax.jpg" alt="/calc solving (312-87)/2 in chat" width="2400" height="1500" loading="lazy">
+        <img data-feature="portal" src="images/web/calc/portal.jpg" alt="/calc overworld converting nether coordinates beside a portal" width="2400" height="1500" loading="lazy">
+        <img data-feature="travel" src="images/web/calc/travel.jpg" alt="/calc dist measuring a minecart route" width="2400" height="1500" loading="lazy">
+        <img data-feature="hopper" src="images/web/calc/hopper.jpg" alt="/calc secondstohopperclock sizing a hopper clock" width="2400" height="1500" loading="lazy">
+      </div>
+
+      <form class="chat" id="chat" data-ui autocomplete="off" aria-label="Try /calc">
+        <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
+        <ul class="chat-suggest" aria-label="Commands to try">
+          <li><button type="button" data-try="(312-87)/2">(312-87)/2</button></li>
+          <li><button type="button" data-try="3sb + 20stack">3sb + 20stack</button></li>
+          <li><button type="button" data-try="nether 984 848">nether 984 848</button></li>
+          <li><button type="button" data-try="dist 15 14 156 -440">dist 15 14 156 -440</button></li>
+          <li><button type="button" data-try="secondstohopperclock 33">secondstohopperclock 33</button></li>
+        </ul>
+        <label class="chat-input">
+          <span class="visually-hidden">Command</span>
+          <span class="chat-cmd" aria-hidden="true">/calc</span>
+          <input id="chat-input" name="expr" type="text" placeholder="(312-87)/2" spellcheck="false" autocapitalize="off">
+        </label>
+      </form>
     </div>
-    <a class="btn btn-full" href="https://modrinth.com/mod/calcmod">Get it on Modrinth</a>
-    <a class="quiet-link" href="https://github.com/js802025/calcmod">Source on GitHub</a>
-  </div>
 
-  <form class="chat" id="chat" data-ui autocomplete="off" aria-label="Try /calc">
-    <ol class="chat-log" id="chat-log" aria-live="polite"></ol>
-    <ul class="chat-suggest" aria-label="Commands to try">
-      <li><button type="button" data-try="(312-87)/2">(312-87)/2</button></li>
-      <li><button type="button" data-try="3sb + 20stack">3sb + 20stack</button></li>
-      <li><button type="button" data-try="nether 984 848">nether 984 848</button></li>
-      <li><button type="button" data-try="dist 15 14 156 -440">dist 15 14 156 -440</button></li>
-      <li><button type="button" data-try="secondstohopperclock 33">secondstohopperclock 33</button></li>
-    </ul>
-    <label class="chat-input">
-      <span class="visually-hidden">Command</span>
-      <span class="chat-cmd" aria-hidden="true">/calc</span>
-      <input id="chat-input" name="expr" type="text" placeholder="(312-87)/2" spellcheck="false" autocapitalize="off">
-    </label>
-  </form>
-</section>
-
-<section class="downloads" id="downloads" aria-labelledby="downloads-title">
-  <h2 id="downloads-title" data-reveal>CalcMod downloads</h2>
-  <div class="figure-block" data-reveal>
-    <p class="figure"><span id="dl-figure">3.49</span><sup>M</sup></p>
-    <p class="figure-caption"><span class="pulse" aria-hidden="true"></span><b id="dl-exact">3,497,057</b> on Modrinth, and <span id="dl-followers">785</span> followers.</p>
+    <aside class="calc-side" id="downloads" aria-label="CalcMod downloads">
+      <p class="figure led" id="dl-figure-wrap" aria-label="3.49 million downloads"><span class="odo" id="dl-figure" aria-hidden="true">3.49</span><span class="figure-unit" aria-hidden="true">M</span></p>
+      <p class="figure-caption"><span class="live-dot" aria-hidden="true"></span><b id="dl-exact">3,497,057</b> downloads on Modrinth</p>
+      <dl class="calc-board">
+        <div><dt>Followers</dt><dd class="led" data-flap id="dl-followers">785</dd></div>
+        <div><dt>Loaders</dt><dd class="led" data-flap id="calc-loader-count">5</dd></div>
+        <div><dt>Minecraft</dt><dd class="led" data-flap id="calc-versions">1.12.2-26.3</dd></div>
+      </dl>
+      <p class="calc-fact" id="calc-loaders">Fabric, Forge, NeoForge, Paper and Quilt.</p>
+      <div class="actions">
+        <a class="btn" href="https://modrinth.com/mod/calcmod">Get it on Modrinth</a>
+        <a class="text-link" href="https://github.com/js802025/calcmod">Source on GitHub</a>
+      </div>
+    </aside>
   </div>
 </section>
 
 <section class="sideflick" id="sideflick" aria-labelledby="sideflick-title">
   <div class="sf-top">
-    <div class="sf-head" data-reveal>
+    <div class="sf-head">
       <img class="sf-icon" src="images/web/sideflick/icon.png" alt="SideFlick logo" width="240" height="240" loading="lazy">
       <h2 id="sideflick-title">Trivia synced to the scene</h2>
     </div>
-    <div class="sf-copy" data-reveal>
+    <div class="sf-copy">
       <p>Pin questions to a film’s timeline with the SideFlick Chrome extension. When that scene plays, the question lands on every player’s phone, with a live leaderboard.</p>
       <ul class="sf-facts">
         <li><b>15</b> question types, from Click Now to Drink When</li>
@@ -146,12 +178,13 @@
     </div>
   </div>
 
-  <div class="sf-screens" data-reveal>
+  <div class="sf-screens">
     <img class="sf-game" src="images/web/sideflick/gameplay.webp" alt="A SideFlick true or false question on a player’s screen, worth 100 points" width="1800" height="995" loading="lazy">
     <img class="sf-ext" src="images/web/sideflick/extension.webp" alt="The SideFlick extension pinning a question at 32:39, with a grid of question types" width="680" height="1556" loading="lazy">
   </div>
 
   <div class="sf-film" data-ui aria-label="A sample game: questions pinned along a film">
+    <p class="sf-sample">Sample game. Scroll to play the film, then answer question 7.</p>
     <ol class="sf-cards" aria-live="polite">
       <li class="sf-card" data-at="0.16" style="--pin: 16%; --tone: var(--sf-bubblegum)">
         <span class="sf-type">True / False</span>
@@ -187,98 +220,123 @@
   </div>
 </section>
 
-<section class="work" id="projects" aria-labelledby="projects-title">
-  <h2 id="projects-title">Other projects</h2>
-  <div class="work-grid">
-    <ul class="names">
-      <li id="skilldule" class="name is-active">
-        <div class="name-pic"><img src="images/web/landing.jpg" alt="Skilldule AI landing page with a schedule preview" width="1704" height="1090" loading="lazy"></div>
-        <div class="name-row"><a class="name-link" href="mailto:jadee6@gatech.edu?subject=Skilldule%20AI%20for%20our%20school">Skilldule AI</a><span class="name-kind">Course planner</span></div>
-        <p class="name-text">Upload a DegreeWorks audit and get ranked schedules back, then refine them in chat.</p>
-      </li>
-      <li id="gtbus" class="name">
-        <div class="name-pic"><img src="images/web/gtbus.jpg" alt="GTBus map of Georgia Tech with every route and live bus positions" width="1839" height="1093" loading="lazy"></div>
-        <div class="name-row"><a class="name-link" href="https://gtbus.org">GTBus</a><span class="name-kind">gtbus.org</span></div>
-        <p class="name-text">Every Georgia Tech route on one map, with live buses and a heads-up before yours arrives.</p>
-      </li>
-      <li id="batcher" class="name">
-        <div class="name-pic name-pic-drawn">
-          <div class="remit" data-ui role="img" aria-label="Illustration of Batcher reading the gift amount, donor address and scanline off a mailed reply slip">
-            <div class="slip">
-              <div class="slip-main">
-                <span class="tear">Tear here</span>
-                <b class="slip-appeal">Together, we keep the pantry full. Will you help, Jane?</b>
-                <p class="slip-yes"><b>YES,</b> I will make a tax-deductible gift to feed families this winter.</p>
-                <div class="slip-row">
-                  <div class="enclosed ocr">
-                    <span class="enc-title">Enclosed is:</span>
-                    <span class="enc-grid"><span class="box">$30</span><span class="box on">$20</span><span class="box">$15</span><span class="box">$____</span></span>
-                    <span class="respond">Respond by: <i>Nov 30, 2026</i></span>
-                  </div>
-                  <p class="addr ocr">Jane Doe<br>120 Peachtree St<br>Atlanta, GA 30303</p>
+<section class="route" aria-labelledby="route-title">
+  <h2 id="route-title" class="route-title">More lines</h2>
+  <ol class="stops">
+    <li class="stop" id="doomlearner" style="--line: var(--l-doom); --on-line: var(--white)">
+      <div class="stop-text">
+        <span class="bullet bullet-lg" aria-hidden="true">D</span>
+        <h3>DoomLearner</h3>
+        <p>Turns a class’s own lecture slides into short study reels and quick quizzes, slotted into the Instagram and TikTok feed and timed to the exam calendar.</p>
+        <a class="btn" href="https://www.doomlearner.com">Join the waitlist</a>
+      </div>
+      <div class="stop-pic stop-phones">
+        <img src="images/web/doomlearner/reel.webp" alt="DoomLearner study reel explaining softmax, made from a CS 3600 lecture" width="560" height="1217" loading="lazy">
+        <img src="images/web/doomlearner/quiz.webp" alt="DoomLearner quiz between swipes asking which metric is the most user-centric" width="560" height="1217" loading="lazy">
+        <img src="images/web/doomlearner/home.webp" alt="DoomLearner home screen with Instagram and TikTok, a day streak and ideas due" width="560" height="1217" loading="lazy">
+      </div>
+    </li>
+
+    <li class="stop" id="gtbus" style="--line: var(--l-bus)">
+      <div class="stop-text">
+        <span class="bullet bullet-lg" aria-hidden="true">G</span>
+        <h3>GTBus</h3>
+        <p>Every Georgia Tech route on one map, with live buses and a heads-up before yours arrives.</p>
+        <a class="btn" href="https://gtbus.org">Open gtbus.org</a>
+      </div>
+      <div class="stop-pic"><img src="images/web/gtbus.jpg" alt="GTBus map of Georgia Tech with every route and live bus positions" width="1839" height="1093" loading="lazy"></div>
+    </li>
+
+    <li class="stop" id="skilldule" style="--line: var(--l-sk)">
+      <div class="stop-text">
+        <span class="bullet bullet-lg" aria-hidden="true">K</span>
+        <h3>Skilldule AI</h3>
+        <p>Upload a DegreeWorks audit and get ranked schedules back, then refine them in chat.</p>
+        <a class="btn" href="mailto:jadee6@gatech.edu?subject=Skilldule%20AI%20for%20our%20school">Ask for a demo</a>
+      </div>
+      <div class="stop-pic"><img src="images/web/landing.jpg" alt="Skilldule AI landing page with a schedule preview" width="1704" height="1090" loading="lazy"></div>
+    </li>
+
+    <li class="stop" id="batcher" style="--line: var(--l-bat)">
+      <div class="stop-text">
+        <span class="bullet bullet-lg" aria-hidden="true">B</span>
+        <h3>Batcher</h3>
+        <p>Scan a stack of mailed remits and Tesseract OCR turns them into donation records, ready to import.</p>
+        <a class="btn" href="mailto:jadee6@gatech.edu?subject=Batcher">Ask for a demo</a>
+      </div>
+      <div class="stop-pic stop-pic-drawn">
+        <div class="remit" data-ui role="img" aria-label="Illustration of Batcher reading the gift amount, donor address and scanline off a mailed reply slip">
+          <div class="slip">
+            <div class="slip-main">
+              <span class="tear">Tear here</span>
+              <b class="slip-appeal">Together, we keep the pantry full. Will you help, Jane?</b>
+              <p class="slip-yes"><b>YES,</b> I will make a tax-deductible gift to feed families this winter.</p>
+              <div class="slip-row">
+                <div class="enclosed ocr">
+                  <span class="enc-title">Enclosed is:</span>
+                  <span class="enc-grid"><span class="box">$30</span><span class="box on">$20</span><span class="box">$15</span><span class="box">$____</span></span>
+                  <span class="respond">Respond by: <i>Nov 30, 2026</i></span>
                 </div>
-                <span class="scanline ocr">41 0938217 52K&nbsp;&nbsp;&nbsp;18F 4402B 7</span>
+                <p class="addr ocr">Jane Doe<br>120 Peachtree St<br>Atlanta, GA 30303</p>
               </div>
-              <div class="slip-side">
-                <span>Give online at</span>
-                <b>example.org/give</b>
-                <span class="qr" aria-hidden="true"></span>
-              </div>
-              <span class="scan"></span>
+              <span class="scanline ocr">41 0938217 52K&nbsp;&nbsp;&nbsp;18F 4402B 7</span>
             </div>
-            <table class="rows">
-              <thead><tr><th>Donor</th><th>Address</th><th>Gift</th><th>Scanline</th></tr></thead>
-              <tbody><tr><td>Jane Doe</td><td>120 Peachtree St, Atlanta</td><td>$20.00</td><td>410938217</td></tr></tbody>
-            </table>
+            <div class="slip-side">
+              <span>Give online at</span>
+              <b>example.org/give</b>
+              <span class="qr" aria-hidden="true"></span>
+            </div>
+            <span class="scan"></span>
           </div>
+          <table class="ocr-rows">
+            <thead><tr><th>Donor</th><th>Address</th><th>Gift</th><th>Scanline</th></tr></thead>
+            <tbody><tr><td>Jane Doe</td><td>120 Peachtree St, Atlanta</td><td>$20.00</td><td>410938217</td></tr></tbody>
+          </table>
         </div>
-        <div class="name-row"><a class="name-link" href="mailto:jadee6@gatech.edu?subject=Batcher">Batcher</a><span class="name-kind">Donation importer</span></div>
-        <p class="name-text">Scan a stack of mailed remits and Tesseract OCR turns them into donation records, ready to import.</p>
-      </li>
-      <li class="name">
-        <div class="name-pic"><img src="images/web/calc/slash-calc.jpg" alt="The /calc wordmark in Minecraft’s pixel font" width="1440" height="720" loading="lazy"></div>
-        <div class="name-row"><a class="name-link" href="https://github.com/js802025/calcmod-updater">CalcMod Updater</a><span class="name-kind">GitHub Action</span></div>
-        <p class="name-text">Prepares each new CalcMod port automatically when Minecraft ships a version.</p>
-      </li>
-    </ul>
-    <div class="preview" aria-hidden="true">
-      <div class="preview-frame"></div>
-      <p class="preview-text"></p>
-    </div>
-  </div>
+      </div>
+    </li>
+
+    <li class="stop stop-small" id="updater" style="--line: var(--l-calc)">
+      <div class="stop-text">
+        <span class="bullet bullet-lg" aria-hidden="true">U</span>
+        <h3>CalcMod Updater</h3>
+        <p>A GitHub Action that prepares each new CalcMod port when Minecraft ships a version.</p>
+        <a class="text-link" href="https://github.com/js802025/calcmod-updater">See it on GitHub</a>
+      </div>
+      <div class="stop-pic"><img src="images/web/calc/slash-calc.jpg" alt="The /calc wordmark in Minecraft’s pixel font" width="1440" height="720" loading="lazy"></div>
+    </li>
+  </ol>
 </section>
 
 <section class="contact" id="contact" aria-labelledby="contact-title">
   <img class="contact-bg" src="images/web/tech-tower.jpg" alt="Tech Tower and the Georgia Tech campus at sunset, midtown Atlanta behind" width="1454" height="1040" loading="lazy">
-  <canvas class="contact-pixels" aria-hidden="true"></canvas>
-  <div class="visit" data-reveal>
+  <canvas class="contact-dots" aria-hidden="true"></canvas>
+  <div class="visit">
     <h2 id="contact-title">Say hello</h2>
-    <p>Georgia Institute of Technology<br>Atlanta, Georgia</p>
+    <p>Georgia Institute of Technology, Atlanta</p>
     <dl>
       <div><dt>Email</dt><dd><a href="mailto:jadee6@gatech.edu">jadee6@gatech.edu</a></dd></div>
       <div><dt>GitHub</dt><dd><a href="https://github.com/js802025">js802025</a></dd></div>
       <div><dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/jack-adee">jack-adee</a></dd></div>
     </dl>
-    <a class="btn btn-full btn-tall" href="mailto:jadee6@gatech.edu">Email Jack</a>
+    <a class="btn btn-full" href="mailto:jadee6@gatech.edu">Email Jack</a>
   </div>
 </section>
+
+</main>
 
 <footer class="foot">
   <img class="foot-photo" src="images/web/jack.jpg" alt="Portrait of Jack Adee" width="800" height="800" loading="lazy">
   <div class="foot-menu">
-    <a class="wordmark" href="#history">Jack Adee</a>
     <ul class="menu">
-      <li><a href="#history">History</a></li>
       <li><a href="#calcmod">CalcMod</a></li>
       <li><a href="#sideflick">SideFlick</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="https://github.com/js802025">GitHub</a></li>
+      <li><a href="#doomlearner">DoomLearner</a></li>
+      <li><a href="#gtbus">GTBus</a></li>
+      <li><a href="#skilldule">Skilldule AI</a></li>
+      <li><a href="#batcher">Batcher</a></li>
     </ul>
-    <div class="foot-blocks">
-      <p>Write to<br><a href="mailto:jadee6@gatech.edu">jadee6@gatech.edu</a></p>
-      <p>Elsewhere<br><a href="https://linkedin.com/in/jack-adee">LinkedIn</a>, <a href="https://modrinth.com/mod/calcmod">Modrinth</a></p>
-    </div>
+    <p class="foot-links"><a href="mailto:jadee6@gatech.edu">jadee6@gatech.edu</a> · <a href="https://github.com/js802025">GitHub</a> · <a href="https://linkedin.com/in/jack-adee">LinkedIn</a> · <a href="https://modrinth.com/mod/calcmod">Modrinth</a></p>
     <p class="legal">© 2026 Jack Adee. Tech Tower photo by Georgia Tech Facilities.</p>
   </div>
 </footer>

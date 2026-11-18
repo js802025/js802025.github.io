@@ -1,2 +1,4 @@
 .DS_Store
 .taste-skill/
+.claude/settings.local.json
+.impeccable/hook.cache.json

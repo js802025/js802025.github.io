@@ -1,0 +1,23 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "buried-raster",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-18T19:25:45.825Z",
+        "reason": "Claude decided: the only opacity-0 rasters are the CalcMod screenshots, which crossfade in when their /calc command runs"
+      },
+      {
+        "rule": "design-system-font",
+        "value": "bagel fat one",
+        "createdAt": "2026-11-18T19:30:42.465Z",
+        "reason": "Claude decided: same SideFlick brand face, lowercase form"
+      }
+    ]
+  }
+}

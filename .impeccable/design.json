@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-18T00:00:00Z",
+  "title": "Design System: Jack Adee",
+  "extensions": {
+    "colorMeta": {
+      "board": {
+        "role": "neutral",
+        "displayName": "Board Black",
+        "canonical": "#0e0e10",
+        "tonalRamp": [
+          "#0a0a0b",
+          "#0e0e10",
+          "#161618",
+          "#1d1d20",
+          "#2b2b2f",
+          "#4d4d56",
+          "#888896",
+          "#cacace"
+        ]
+      },
+      "panel": {
+        "role": "neutral",
+        "displayName": "Panel",
+        "canonical": "#161618",
+        "tonalRamp": [
+          "#0e0e10",
+          "#161618",
+          "#1e1e1f",
+          "#36363a",
+          "#4f4f55",
+          "#6c6c75",
+          "#aaaab0",
+          "#eaeaeb"
+        ]
+      },
+      "led-black": {
+        "role": "neutral",
+        "displayName": "LED Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "#000000",
+          "#1f1f1f",
+          "#383838",
+          "#525252",
+          "#707070",
+          "#8f8f8f",
+          "#cccccc",
+          "#ebebeb"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule",
+        "canonical": "#2b2b2f",
+        "tonalRamp": [
+          "#1e1e1f",
+          "#2b2b2f",
+          "#36363a",
+          "#4f4f55",
+          "#6b6b75",
+          "#8a8a94",
+          "#aaaab0",
+          "#eaeaeb"
+        ]
+      },
+      "signage-white": {
+        "role": "neutral",
+        "displayName": "Signage White",
+        "canonical": "#f4f2ec",
+        "tonalRamp": [
+          "#242119",
+          "#433e2d",
+          "#645b3f",
+          "#8d7e54",
+          "#ab9d72",
+          "#c0b79b",
+          "#d6d1c2",
+          "#f4f2ec"
+        ]
+      },
+      "dim": {
+        "role": "neutral",
+        "displayName": "Dim",
+        "canonical": "#a29d93",
+        "tonalRamp": [
+          "#201f1d",
+          "#3b3935",
+          "#57534c",
+          "#787368",
+          "#a29d93",
+          "#b3afa8",
+          "#cfcdc9",
+          "#ecebea"
+        ]
+      },
+      "amber": {
+        "role": "primary",
+        "displayName": "LED Amber",
+        "canonical": "#ffb31a",
+        "tonalRamp": [
+          "#241d10",
+          "#5c3f09",
+          "#9c6c10",
+          "#dc9814",
+          "#ffb31a",
+          "#f2c469",
+          "#f1d9a7",
+          "#f7efde"
+        ]
+      },
+      "line-calc": {
+        "role": "secondary",
+        "displayName": "Line Green (CalcMod)",
+        "canonical": "#3fbf4f",
+        "tonalRamp": [
+          "#142917",
+          "#234d28",
+          "#2f7438",
+          "#3ba648",
+          "#3fbf4f",
+          "#8bd094",
+          "#b9dfbe",
+          "#e4f1e6"
+        ]
+      },
+      "line-sideflick": {
+        "role": "secondary",
+        "displayName": "Line Pink (SideFlick)",
+        "canonical": "#ff5da2",
+        "tonalRamp": [
+          "#330a1c",
+          "#620e32",
+          "#960d47",
+          "#da0660",
+          "#ff5da2",
+          "#f269a3",
+          "#f1a7c6",
+          "#f7dee9"
+        ]
+      },
+      "line-gtbus": {
+        "role": "secondary",
+        "displayName": "Line Vermilion (GTBus)",
+        "canonical": "#f2552c",
+        "tonalRamp": [
+          "#30140d",
+          "#5d2213",
+          "#8e2e15",
+          "#ce3912",
+          "#f2552c",
+          "#ea8a71",
+          "#edb9ab",
+          "#f6e4df"
+        ]
+      },
+      "line-skilldule": {
+        "role": "secondary",
+        "displayName": "Line Blue (Skilldule AI)",
+        "canonical": "#3a86ef",
+        "tonalRamp": [
+          "#0d1c30",
+          "#14325c",
+          "#17488c",
+          "#1662ca",
+          "#3a86ef",
+          "#73a4e8",
+          "#acc7ec",
+          "#e0e9f5"
+        ]
+      },
+      "line-batcher": {
+        "role": "secondary",
+        "displayName": "Line Teal (Batcher)",
+        "canonical": "#1fb8b2",
+        "tonalRamp": [
+          "#102d2c",
+          "#1a5654",
+          "#21827e",
+          "#1fb8b2",
+          "#43dad4",
+          "#7ddeda",
+          "#b2e6e4",
+          "#e2f4f3"
+        ]
+      },
+      "led-off": {
+        "role": "primary",
+        "displayName": "LED Unlit",
+        "canonical": "#241d10",
+        "tonalRamp": [
+          "#241d10",
+          "#5c3f09",
+          "#9c6c10",
+          "#dc9814",
+          "#ffb31a",
+          "#f2c469",
+          "#f1d9a7",
+          "#f7efde"
+        ]
+      },
+      "led-low": {
+        "role": "primary",
+        "displayName": "LED Low",
+        "canonical": "#5c3f09",
+        "tonalRamp": [
+          "#241d10",
+          "#5c3f09",
+          "#9c6c10",
+          "#dc9814",
+          "#ffb31a",
+          "#f2c469",
+          "#f1d9a7",
+          "#f7efde"
+        ]
+      },
+      "led-mid": {
+        "role": "primary",
+        "displayName": "LED Mid",
+        "canonical": "#9c6c10",
+        "tonalRamp": [
+          "#241d10",
+          "#5c3f09",
+          "#9c6c10",
+          "#dc9814",
+          "#ffb31a",
+          "#f2c469",
+          "#f1d9a7",
+          "#f7efde"
+        ]
+      },
+      "led-high": {
+        "role": "primary",
+        "displayName": "LED High",
+        "canonical": "#dc9814",
+        "tonalRamp": [
+          "#241d10",
+          "#5c3f09",
+          "#9c6c10",
+          "#dc9814",
+          "#ffb31a",
+          "#f2c469",
+          "#f1d9a7",
+          "#f7efde"
+        ]
+      },
+      "line-doomlearner": {
+        "role": "secondary",
+        "displayName": "Line Indigo (DoomLearner)",
+        "canonical": "#5b50f5",
+        "tonalRamp": [
+          "#190e2f",
+          "#2d155b",
+          "#40188b",
+          "#5417c9",
+          "#5b50f5",
+          "#9b74e7",
+          "#c2adeb",
+          "#e7e0f5"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "The name in the hero only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Line section titles, stop titles, contact heading, footer menu."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Project names on board rows."
+      },
+      "lead": {
+        "displayName": "Lead",
+        "purpose": "Hero line and section one-liners, about 28-30ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running copy and buttons."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav, column heads, tooltips, captions."
+      },
+      "led": {
+        "displayName": "LED (Doto)",
+        "purpose": "Live numbers and status words only, always amber and tabular."
+      }
+    },
+    "shadows": [
+      {
+        "name": "tip-lift",
+        "value": "0 8px 24px rgba(0, 0, 0, .45)",
+        "purpose": "Floating day tooltip over the dot grid."
+      },
+      {
+        "name": "card-over-photo",
+        "value": "0 24px 60px rgba(0, 0, 0, .5)",
+        "purpose": "Contact card resting on the Tech Tower photo."
+      },
+      {
+        "name": "hairline-ring",
+        "value": "0 0 0 1px #2b2b2f",
+        "purpose": "Image wells on the strip map."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Row slide, bullet scale, image settle, menu slide."
+      },
+      {
+        "name": "board-refresh",
+        "value": "characters cycle A-Z0-9. then settle at 260ms + 38ms per character, rows staggered 90ms",
+        "purpose": "Departure rows on first view; skipped under reduced motion."
+      },
+      {
+        "name": "led-light",
+        "value": "background-color 500ms ease, 8ms per cell stagger",
+        "purpose": "Contribution dots lighting along the LED ramp."
+      },
+      {
+        "name": "button-hover",
+        "value": "background-color 200ms ease; press scale .97 over 80ms",
+        "purpose": "Primary button feedback."
+      },
+      {
+        "name": "dots-to-photo",
+        "value": "amber LED dots sweep on row by row, shrink with scroll, warm to true colour, photo takes over",
+        "purpose": "Tech Tower arrival at the end of the line."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "max-width: 899px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Signage-white pill that lights amber on hover; the one button style.",
+      "html": "<a class=\"ds-btn\" href=\"#\">Email me</a>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:.2em 1.3em 0;background:var(--white);color:var(--ink);font:600 1.0625rem/1 var(--sign);text-decoration:none;border-radius:999px;transition:background-color 200ms ease,transform 300ms var(--ease-out);} .ds-btn:hover{background:var(--amber);} .ds-btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px;} .ds-btn:active{transform:scale(.97);transition-duration:80ms;}"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "description": "Inline white 600 link turning amber on hover.",
+      "html": "<p class=\"ds-copy\">Source on <a class=\"ds-link\" href=\"#\">GitHub</a>.</p>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-copy{background:var(--board);color:var(--dim);font:400 1.0625rem/1.5 var(--sign);padding:16px;} .ds-link{color:var(--white);font-weight:600;text-underline-offset:.2em;text-decoration-thickness:1px;} .ds-link:hover{color:var(--amber);} .ds-link:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}"
+    },
+    {
+      "name": "Top Strip",
+      "kind": "nav",
+      "description": "Sticky strip: wordmark, live LED Atlanta clock, dim nav.",
+      "html": "<header class=\"ds-strip\"><a class=\"ds-word\" href=\"#\">Jack Adee</a><p class=\"ds-clock\">14:07 <small>ATL</small></p><nav class=\"ds-nav\"><a href=\"#\">Projects</a><a href=\"#\">Contact</a><a href=\"#\">GitHub</a></nav></header>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-strip{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:14px 24px;background:var(--board);border-bottom:1px solid var(--rule);font-family:var(--sign);color:var(--white);} .ds-word{font-weight:800;text-decoration:none;color:inherit;letter-spacing:-.01em;} .ds-clock{margin:0;font-family:var(--dots);font-weight:900;color:var(--amber);font-size:1.375rem;line-height:1;font-variant-numeric:tabular-nums;} .ds-clock small{font-size:.6em;color:var(--dim);font-family:var(--sign);font-weight:600;letter-spacing:.08em;} .ds-nav{justify-self:end;display:flex;gap:24px;} .ds-nav a{font-size:.875rem;font-weight:600;text-decoration:none;color:var(--dim);transition:color 160ms ease;} .ds-nav a:hover{color:var(--white);} .ds-nav a:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}"
+    },
+    {
+      "name": "Line Bullet",
+      "kind": "chip",
+      "refersTo": "line-bullet",
+      "description": "Round bullet in the project's line colour with one board-black capital.",
+      "html": "<span class=\"ds-bullets\"><span class=\"ds-bullet\" style=\"--line:#3fbf4f\">C</span><span class=\"ds-bullet\" style=\"--line:#ff5da2\">S</span><span class=\"ds-bullet\" style=\"--line:#f2552c\">G</span><span class=\"ds-bullet\" style=\"--line:#3a86ef\">K</span><span class=\"ds-bullet\" style=\"--line:#1fb8b2\">B</span><span class=\"ds-bullet\" style=\"--line:#5b50f5\">D</span></span>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-bullets{display:flex;gap:12px;padding:16px;background:var(--board);} .ds-bullet{display:inline-grid;place-items:center;width:2em;height:2em;border-radius:50%;background:var(--line);color:var(--ink);font:800 1.0625rem/1 var(--sign);padding-top:.12em;transition:transform 300ms var(--ease-out);} .ds-bullet:hover{transform:scale(1.15);}"
+    },
+    {
+      "name": "Departure Row",
+      "kind": "card",
+      "description": "Signature board row: bullet, name and kind, LED live figure, destination; slides right on hover.",
+      "html": "<a class=\"ds-row\" href=\"#\" style=\"--line:#3fbf4f\"><span class=\"ds-b\">C</span><span class=\"ds-name\"><b>CalcMod</b><span>Calculator in Minecraft chat</span></span><span class=\"ds-status\">3.49M DL</span><span class=\"ds-to\">modrinth.com</span></a>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-row{display:grid;grid-template-columns:auto 1fr 10rem 9rem;align-items:center;gap:24px;padding:18px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--white);background:var(--board);font-family:var(--sign);transition:padding-left 400ms var(--ease-out);} .ds-row:hover,.ds-row:focus-visible{padding-left:12px;outline:none;} .ds-b{display:inline-grid;place-items:center;width:2em;height:2em;border-radius:50%;background:var(--line);color:var(--ink);font-weight:800;line-height:1;padding-top:.12em;} .ds-name{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 20px;} .ds-name b{font-weight:800;font-size:1.75rem;letter-spacing:-.02em;line-height:1.05;} .ds-name span{color:var(--dim);} .ds-status{font-family:var(--dots);font-weight:900;color:var(--amber);font-size:1.25rem;font-variant-numeric:tabular-nums;white-space:nowrap;} .ds-to{color:var(--dim);font-weight:600;} .ds-row:hover .ds-to{color:var(--white);}"
+    },
+    {
+      "name": "LED Panel",
+      "kind": "card",
+      "refersTo": "led-panel",
+      "description": "True-black panel with LED year, total, and a dot grid lit along the LED ramp.",
+      "html": "<figure class=\"ds-panel\"><figcaption><span class=\"ds-year\">2026</span> <span class=\"ds-count\"><b>342</b> contributions</span></figcaption><div class=\"ds-grid\"><i></i><i class=\"l2\"></i><i class=\"l4\"></i><i class=\"l1\"></i><i></i><i class=\"l3\"></i><i class=\"l2\"></i><i class=\"l1\"></i><i class=\"l4\"></i><i></i><i class=\"l3\"></i><i class=\"l2\"></i><i></i><i class=\"l1\"></i></div></figure>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-panel{margin:0;background:#000;border-radius:10px;padding:24px;display:grid;gap:20px;font-family:var(--sign);color:var(--dim);} .ds-year{font-family:var(--dots);font-weight:900;color:var(--amber);font-size:2.5rem;line-height:.8;} .ds-count b{font-family:var(--dots);font-weight:900;color:var(--amber);font-size:1.4em;} .ds-grid{display:grid;grid-template-rows:repeat(7,14px);grid-auto-flow:column;grid-auto-columns:14px;gap:4px;} .ds-grid i{border-radius:50%;background:var(--d0);transition:transform 200ms ease;} .ds-grid i:hover{transform:scale(1.5);} .ds-grid .l1{background:var(--d1);} .ds-grid .l2{background:var(--d2);} .ds-grid .l3{background:var(--d3);} .ds-grid .l4{background:var(--d4);}"
+    },
+    {
+      "name": "Side Card",
+      "kind": "card",
+      "refersTo": "side-card",
+      "description": "Panel card with a giant LED figure, caption, and pinned action.",
+      "html": "<aside class=\"ds-side\"><p class=\"ds-fig\">3.49<span>M</span></p><p class=\"ds-cap\"><b>3,497,057</b> downloads on Modrinth.</p><a class=\"ds-btn\" href=\"#\">Get CalcMod</a></aside>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-side{background:var(--panel);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:20px;color:var(--white);font:400 1.0625rem/1.5 var(--sign);max-width:360px;} .ds-fig{margin:0;font-family:var(--dots);font-weight:900;color:var(--amber);font-size:6rem;line-height:.8;letter-spacing:-.02em;display:flex;align-items:flex-start;font-variant-numeric:tabular-nums;} .ds-fig span{font-size:.45em;margin-left:.06em;} .ds-cap{margin:0;} .ds-cap b{font-weight:600;font-variant-numeric:tabular-nums;} .ds-btn{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;padding:.2em 1.3em 0;background:var(--white);color:var(--ink);font-weight:600;line-height:1;text-decoration:none;border-radius:999px;transition:background-color 200ms ease;} .ds-btn:hover{background:var(--amber);} .ds-btn:focus-visible{outline:2px solid var(--amber);outline-offset:3px;}"
+    },
+    {
+      "name": "Strip Map Stop",
+      "kind": "custom",
+      "description": "A stop on the route: 48px bullet with its 6px line running down, headline and dim lead.",
+      "html": "<div class=\"ds-stop\" style=\"--line:#f2552c\"><span class=\"ds-sb\">G</span><h3>GTBus</h3><p>Every Georgia Tech bus on one live map.</p></div>",
+      "css": ":host{--board:#0e0e10;--panel:#161618;--rule:#2b2b2f;--white:#f4f2ec;--dim:#a29d93;--amber:#ffb31a;--ink:#0e0e10;--d0:#241d10;--d1:#5c3f09;--d2:#9c6c10;--d3:#dc9814;--d4:#ffb31a;--l-calc:#3fbf4f;--l-sf:#ff5da2;--l-bus:#f2552c;--l-sk:#3a86ef;--l-bat:#1fb8b2;--l-doom:#5b50f5;--sign:'Overpass','Helvetica Neue',Arial,sans-serif;--dots:'Doto','Overpass Mono',monospace;--ease-out:cubic-bezier(.16,1,.3,1);} .ds-stop{position:relative;padding:0 0 64px 72px;background:var(--board);color:var(--white);font-family:var(--sign);} .ds-stop::before{content:'';position:absolute;left:21px;top:24px;bottom:0;width:6px;background:var(--line);} .ds-sb{position:absolute;left:0;top:0;z-index:1;display:grid;place-items:center;width:48px;height:48px;border-radius:50%;background:var(--line);color:var(--ink);font-weight:800;font-size:1.375rem;padding-top:.12em;} .ds-stop h3{margin:0 0 12px;font-size:2.5rem;font-weight:800;letter-spacing:-.03em;line-height:1;} .ds-stop p{margin:0;color:var(--dim);font-size:1.375rem;line-height:1.35;max-width:28ch;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Departures Board",
+    "overview": "The home page is a transit departures board at night. Board black ground, signage-white grotesk names, and amber dot-matrix LEDs for every live figure. Each project is a scheduled line with its own transit colour, read in one glance as a row of the board, then ridden down as a strip map to its demo, terminating at Tech Tower. Nothing is decorative that a station would not carry: there are no glows, no gradients, and no ornamental greys.\n\nDensity is high at the board and generous everywhere else: rows are tight and tabular, sections breathe on a long section gap. Motion is signage motion. The board refreshes by cycling characters before they settle row by row, the contributions panel lights from unlit to full amber, and the closing photo arrives as LED dots that shrink and warm into true colour.",
+    "keyCharacteristics": [
+      "One dark ground, one white, one amber, two greys; colour beyond that belongs to a project's line.",
+      "Live numbers are always LED: dot-matrix face, amber, tabular figures.",
+      "One label grid for every project row: bullet, name and kind, live figure, destination.",
+      "A project's line colour lives in its round bullet and its route stroke (the strip-map line and the 6px section top rule), nowhere else.",
+      "Pill buttons in signage white that light amber on hover."
+    ],
+    "rules": [
+      {
+        "name": "The One Line Rule",
+        "body": "Each project owns one line colour, set as `--line` on its row, section, or stop. It appears in the bullet and the route stroke only; two line colours never share a component.",
+        "section": "colors"
+      },
+      {
+        "name": "The Lit Means Live Rule",
+        "body": "Amber is reserved for live data and interaction feedback. A static label is never amber.",
+        "section": "colors"
+      },
+      {
+        "name": "The Two Greys Rule",
+        "body": "Dim and Rule are the only greys. Panel is a surface, not a text colour.",
+        "section": "colors"
+      },
+      {
+        "name": "The Signage Weight Rule",
+        "body": "Headings are Overpass 800 with negative tracking (-0.01em to -0.035em); there are no light or italic display styles.",
+        "section": "typography"
+      },
+      {
+        "name": "The Dots Are Data Rule",
+        "body": "Doto sets numbers and status only (`3.49M DL`, `LIVE`, `RUNNING`, the clock, the year). Never set names or sentences in it.",
+        "section": "typography"
+      },
+      {
+        "name": "The No Glow Rule",
+        "body": "LEDs are lit by colour alone. No text-shadow, no blur halos, no gradients.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** give every new project one line colour and use it only in its bullet and route stroke.",
+      "**Do** set every live number in Doto 900 amber with tabular figures.",
+      "**Do** keep every project row on the same label grid: bullet, name and kind, live figure, destination.",
+      "**Do** put lit content (dot grids, screens, LED figures) on true black (`led-black`) and raised wells on Panel.",
+      "**Do** honour `prefers-reduced-motion`: settle text instantly, light the grid without stagger, show the photo without the dot resolve."
+    ],
+    "donts": [
+      "**Don't** add glows, text shadows, or gradients to LEDs or anything else.",
+      "**Don't** introduce a third grey or tint the white.",
+      "**Don't** mix two line colours in one component, or use a line colour for body text.",
+      "**Don't** set names or sentences in the dot-matrix face.",
+      "**Don't** let SideFlick's Midnight Matinee tokens or the Minecraft chat colours appear outside their own sections.",
+      "**Don't** use Georgia Tech gold and navy as a palette."
+    ]
+  }
+}

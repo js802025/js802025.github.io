@@ -1,96 +1,14 @@
 // ================= SETUP =================
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const history = document.getElementById("history");
-const frames = [...document.querySelectorAll(".frame")];
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 const fmt = n => n.toLocaleString("en-US");
-const isDesktop = () => window.innerWidth >= 900;
 
-if (!reduceMotion) history.classList.add("pin");
-
-// ================= AVATAR MOSAIC =================
-// My GitHub picture redrawn in Minecraft chat colours, one code per square
-const AVATAR = [
-  "400060002200020004400050004400040004",
-  "0c6600200022000200044000400044000400",
-  "060aa0002000660004000440004000440ccc",
-  "060aa220006000440004000440004000cd0c",
-  "06ee00044000600ffffff40004400660ddcc",
-  "44006660044000ff0044ff040004406cc0c0",
-  "0046660400046ff040004ff0040004ccd030",
-  "400c4c6004000ff0004000f400ccccc5d000",
-  "00400ccc60060f06600040f044000c000130",
-  "40004cd0e6000f00044000f00044cd050003",
-  "04400d9000220ff600044ff0400045000300",
-  "0004500010004ff004000ff0004000510003",
-  "04000110001000fff00fff04400040001100",
-  "000400091000400ffffff40004400d500011",
-  "440004d9015000400ff40004000c4d001000",
-  "004460c50d0440004ff04400040cdd500010",
-  "4000c4cddc0004400ff0001100040d999000",
-  "0040cc55000400044ff05000110005990110",
-  "4ccccdd044000400ffff0030001109990001",
-  "cccc00500044000ffffff000100011099990",
-  "cc0c5000400044fffff0ff30001000199091",
-  "0ccc0440004000ff0ff10ff1100010099990",
-  "0004000440004ff04ff001ff011000109911",
-  "440004000440ff400ff100ff000110001000",
-  "004400ccc00440005ff01100010001100010",
-  "40004cc0c40005500ff00011000990011000",
-  "005000ddd0050001ffff1000119099000110",
-  "50005ddd11000300ff3f0010009199019001",
-  "055dddd00011000ff00ff000300999990100",
-  "00055d903000110f0300f330003000bbb901",
-  "0100d199001000ff0003ff03300030b0aaae",
-  "0099900110001ff033000ff0032000a00e66",
-  "5100910001100ff0003300f3000220006ee0",
-  "001190010001300030003300020002600060",
-  "500011000100033000300032000600066000",
-  "005000110003000330003000660006000660"
-].join("");
-function drawMosaic() {
-  const holder = document.querySelector(".mosaic-cells");
-  const n = 36, mid = (n - 1) / 2;
-  [...AVATAR].forEach((code, k) => {
-    const x = k % n, y = Math.floor(k / n);
-    const el = document.createElement("span");
-    el.className = code === "0" ? "mcell" : `mcell m-${code}`;
-    el.style.setProperty("--i", x + y);
-    el.style.setProperty("--d", Math.round(Math.hypot(x - mid, y - mid)));
-    holder.appendChild(el);
-  });
-  const mosaic = document.querySelector(".mosaic");
-  const show = on => {
-    mosaic.classList.toggle("reveal", on);
-    mosaic.setAttribute("aria-label", on ? "Hide my GitHub profile picture" : "Show my GitHub profile picture");
-  };
-  mosaic.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") show(true); });
-  mosaic.addEventListener("pointerleave", e => { if (e.pointerType === "mouse") show(false); });
-  mosaic.addEventListener("click", () => show(!mosaic.classList.contains("reveal")));
-}
-
-async function loadProfile() {
-  try {
-    const response = await fetch("https://api.github.com/users/js802025");
-    if (!response.ok) throw new Error(response.status);
-    const user = await response.json();
-    document.getElementById("gh-repos").textContent = fmt(user.public_repos);
-    if (user.bio) document.getElementById("gh-bio").textContent = user.bio;
-  } catch (error) {
-    console.error("Failed to load GitHub profile:", error);
-  }
-}
-
-// ================= GITHUB CONTRIBUTION GRAPH =================
+// ================= THIS YEAR, AS AN LED PANEL =================
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const today = new Date().toISOString().slice(0, 10);
-
-function cell(level, i, extra = "") {
-  const el = document.createElement("span");
-  el.className = `cell l${level} ${extra}`.trim();
-  el.style.setProperty("--i", i);
-  return el;
-}
+const YEAR = new Date().getFullYear();
+const graph = document.getElementById("graph");
+document.getElementById("panel-year").textContent = YEAR;
 
 function describe(day) {
   const [y, m, d] = day.date.split("-").map(Number);
@@ -98,148 +16,107 @@ function describe(day) {
   return `${n === 0 ? "No" : n} contribution${n === 1 ? "" : "s"} on ${MONTHS[m - 1]} ${d}, ${y}`;
 }
 
-function drawYear(container, year, byDate) {
-  container.textContent = "";
-  const offset = new Date(Date.UTC(year, 0, 1)).getUTCDay();
-  for (let i = 0; i < offset; i++) container.appendChild(cell(0, 0, "pad"));
+function drawYear(byDate) {
+  graph.textContent = "";
+  const offset = new Date(Date.UTC(YEAR, 0, 1)).getUTCDay();
+  for (let i = 0; i < offset; i++) {
+    const pad = document.createElement("span");
+    pad.className = "cell pad";
+    graph.appendChild(pad);
+  }
   let slot = offset;
-  for (let d = new Date(Date.UTC(year, 0, 1)); d.getUTCFullYear() === year; d.setUTCDate(d.getUTCDate() + 1), slot++) {
+  for (let d = new Date(Date.UTC(YEAR, 0, 1)); d.getUTCFullYear() === YEAR; d.setUTCDate(d.getUTCDate() + 1), slot++) {
     const date = d.toISOString().slice(0, 10);
     const day = byDate.get(date) || { date, count: 0, level: 0 };
-    const el = cell(day.level, Math.floor(slot / 7) + (slot % 7) * 0.6, date > today ? "future" : "");
+    const el = document.createElement("span");
+    el.className = `cell l${day.level}${date > today ? " future" : ""}`;
+    // light the panel left to right, a column at a time
+    el.style.setProperty("--i", Math.floor(slot / 7));
     el.dataset.tip = describe(day);
-    container.appendChild(el);
+    graph.appendChild(el);
   }
-}
-
-function drawAll(contributions, totals) {
-  const byDate = new Map(contributions.map(d => [d.date, d]));
-  document.querySelectorAll("[data-graph]").forEach(g => {
-    const year = Number(g.dataset.graph);
-    drawYear(g, year, byDate);
-    if (totals[year] !== undefined) g.closest(".frame").querySelector("[data-total]").textContent = fmt(totals[year]);
-  });
 }
 
 async function loadContributionGraph() {
   try {
-    const response = await fetch("https://github-contributions-api.jogruber.de/v4/js802025");
+    const response = await fetch(`https://github-contributions-api.jogruber.de/v4/js802025?y=${YEAR}`);
     if (!response.ok) throw new Error(response.status);
     const data = await response.json();
-    drawAll(data.contributions, data.total);
+    drawYear(new Map(data.contributions.map(d => [d.date, d])));
+    if (data.total[YEAR] !== undefined) document.getElementById("panel-total").textContent = fmt(data.total[YEAR]);
   } catch (error) {
     console.error("Failed to load contribution graph:", error);
   }
-  layoutReel();
-  // Light the squares only after they exist, and not before the title has landed
-  setTimeout(() => {
-    graphReady = true;
-    if (history.classList.contains("pin")) onScroll();
-    else frames.forEach(f => f.classList.add("on"));
-  }, Math.max(60, 700 - performance.now()));
+  requestAnimationFrame(() => graph.classList.add("lit"));
 }
+drawYear(new Map());
 
-// Hover a square to read its day
+// Hover a dot to read its day
 const tip = document.createElement("div");
 tip.className = "tip";
 tip.setAttribute("aria-hidden", "true");
-document.querySelector(".stage").appendChild(tip);
-
+const panel = document.querySelector(".panel");
+panel.appendChild(tip);
 function showTip(e) {
   const c = e.target.closest(".cell[data-tip]");
   if (!c) { tip.classList.remove("show"); return; }
-  const stage = tip.parentElement.getBoundingClientRect();
+  const box = panel.getBoundingClientRect();
   const r = c.getBoundingClientRect();
   tip.textContent = c.dataset.tip;
-  tip.style.left = clamp(r.left + r.width / 2 - stage.left, 120, stage.width - 120) + "px";
-  tip.style.top = (r.top - stage.top) + "px";
+  tip.style.left = clamp(r.left + r.width / 2 - box.left, 130, box.width - 130) + "px";
+  tip.style.top = (r.top - box.top) + "px";
   tip.classList.add("show");
 }
-const reel = document.querySelector(".reel");
-reel.addEventListener("pointerover", showTip);
-reel.addEventListener("pointerdown", showTip);
-reel.addEventListener("pointerleave", () => tip.classList.remove("show"));
+graph.addEventListener("pointerover", showTip);
+graph.addEventListener("pointerdown", showTip);
+graph.addEventListener("pointerleave", () => tip.classList.remove("show"));
 
-// ================= PINNED REEL =================
-let step = 0, top0 = 0, graphReady = false;
-
-function layoutReel() {
-  if (!history.classList.contains("pin")) { history.style.height = ""; return; }
-  const win = document.querySelector(".reel-window");
-  const stage = document.querySelector(".stage");
-  if (isDesktop()) {
-    // The reel fills the band between the two halves of the title
-    const l = document.querySelector(".half-l").getBoundingClientRect();
-    const r = document.querySelector(".half-r").getBoundingClientRect();
-    const top = l.bottom - stage.getBoundingClientRect().top + 24;
-    const bottom = stage.clientHeight - (r.top - stage.getBoundingClientRect().top) + 24;
-    const winH = stage.clientHeight - top - bottom;
-    const frameH = winH - 2 * (40 + 16);
-    stage.style.setProperty("--win-top", `${top}px`);
-    stage.style.setProperty("--win-bottom", `${bottom}px`);
-    stage.style.setProperty("--reel-w", `${clamp(frameH * 1.6, 320, window.innerWidth - 2 * 32)}px`);
-    stage.style.removeProperty("--win-h");
-  } else {
-    stage.style.removeProperty("--reel-w");
-    stage.style.setProperty("--win-h", `${frames[0].offsetHeight + 2 * (24 + 16)}px`);
-  }
-  const frameH = frames[0].offsetHeight;
-  const winH = win.clientHeight;
-  const sliver = isDesktop() ? 22 : 24;
-  const gap = Math.max(16, (winH - frameH) / 2 - sliver);
-  step = frameH + gap;
-  top0 = (winH - frameH) / 2;
-  history.style.height = `${window.innerHeight * (1 + 0.45 * (frames.length - 1))}px`;
+// ================= BOARD REFRESH =================
+// Each row's text cycles through the board's character set, then settles, top row first
+const FLAP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.";
+function flap(el, delay) {
+  const final = el.textContent;
+  const start = performance.now() + delay;
+  const settleAt = k => 260 + k * 38;
+  const tick = now => {
+    const t = now - start;
+    if (t < 0) { requestAnimationFrame(tick); return; }
+    let out = "", done = true;
+    for (let k = 0; k < final.length; k++) {
+      const ch = final[k];
+      if (ch === " " || t >= settleAt(k)) out += ch;
+      else { out += FLAP[(Math.random() * FLAP.length) | 0]; done = false; }
+    }
+    el.textContent = out;
+    if (!done) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
 }
-
-// Hold on each year, then glide to the next
-const settle = f => f < 0.3 ? 0 : f > 0.7 ? 1 : (t => t * t * (3 - 2 * t))((f - 0.3) / 0.4);
-
-function positionReel() {
-  if (!history.classList.contains("pin")) return;
-  const travel = history.offsetHeight - window.innerHeight;
-  const p = travel > 0 ? clamp(-history.getBoundingClientRect().top / travel, 0, 1) : 0;
-  const raw = p * (frames.length - 1);
-  const i = Math.floor(raw);
-  const pos = i + settle(raw - i);
-  const winH = document.querySelector(".reel-window").clientHeight;
-  frames.forEach((f, n) => {
-    const y = top0 + (n - pos) * step;
-    // Frames leaving upward fade out; the next one still peeks in from below
-    const fade = y < 0 ? clamp(1 + y / 50, 0, 1) : 1;
-    f.style.transform = `translateY(${y}px)`;
-    f.style.opacity = fade;
-    f.style.visibility = fade === 0 || y > winH ? "hidden" : "";
-  });
-  if (!graphReady) return;
-  const current = Math.round(pos);
-  frames.forEach((f, n) => { if (n <= current) f.classList.add("on"); });
-}
-
-// ================= SCROLL-LINKED PICTURES =================
-const drifters = [
-  ...[...document.querySelectorAll(".showcase-bg img")].map(el => ({ el, box: el.closest(".showcase"), from: 1.85, to: 1.7 }))
-];
-
-function driftPictures() {
+function refreshBoard() {
   if (reduceMotion) return;
-  const vh = window.innerHeight;
-  drifters.forEach(({ el, box, from, to }) => {
-    const r = box.getBoundingClientRect();
-    if (r.bottom < 0 || r.top > vh) return;
-    const p = clamp((vh - r.top) / (vh + r.height), 0, 1);
-    el.style.setProperty("--zoom", (from + (to - from) * p).toFixed(4));
+  document.querySelectorAll(".row").forEach((row, r) => {
+    row.querySelectorAll("[data-flap]").forEach(el => flap(el, r * 90));
   });
 }
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(([e], obs) => {
+    if (!e.isIntersecting) return;
+    refreshBoard();
+    obs.disconnect();
+  }, { threshold: 0.2 }).observe(document.getElementById("board"));
+}
 
-// ================= TECH TOWER, PIXELS TO PHOTO =================
+// ================= TECH TOWER, LED DOTS TO PHOTO =================
+// The tower arrives like a board updating: chat-coloured LED dots sweep on row by row,
+// shrink as you scroll, warm into the photo's own colour, then the photo takes over.
 const towerImg = document.querySelector(".contact-bg");
-const towerCanvas = document.querySelector(".contact-pixels");
+const towerCanvas = document.querySelector(".contact-dots");
 const towerCtx = towerCanvas.getContext("2d");
 const towerSmall = document.createElement("canvas");
-let towerBlock = "";
+let towerKey = "";
+const UNLIT = [36, 29, 16];
 
-// Minecraft chat colours, picked by hue the way the avatar mosaic is, so even a dusky photo comes out loud
+// Minecraft chat colours, picked by hue, so even a dusky photo comes out loud: a full-colour LED board
 const HUES = [
   [0, [255, 85, 85], [170, 0, 0]], [35, [255, 170, 0], [170, 0, 0]], [58, [255, 255, 85], [255, 170, 0]],
   [120, [85, 255, 85], [0, 170, 0]], [180, [85, 255, 255], [0, 170, 170]], [235, [85, 85, 255], [0, 0, 170]],
@@ -264,40 +141,63 @@ function drawTower(force = false) {
   const r = towerCanvas.getBoundingClientRect();
   const vh = window.innerHeight;
   if (r.top > vh) return;
-  if (r.bottom < 0) { towerCanvas.classList.add("done"); towerBlock = "done"; return; }
-  const p = clamp((vh - r.top) / (vh * 0.85), 0, 1);
-  // squares shrink from 56px to 4px, then the photo takes over
-  const block = Math.round(4 + 52 * Math.pow(1 - p, 1.4));
-  const real = clamp((p - 0.6) / 0.37, 0, 1) ** 1.5;
-  // Check "done" first, every time, so the photo always takes over at the end
+  if (r.bottom < 0) { towerCanvas.classList.add("done"); towerKey = "done"; return; }
+  const p = clamp((vh - r.top) / (vh * 0.9), 0, 1);
   const done = p >= 0.97;
   towerCanvas.classList.toggle("done", done);
-  if (done) { towerBlock = "done"; return; }
-  const key = block + ":" + Math.round(real * 20);
-  if (key === towerBlock && !force) return;
-  towerBlock = key;
+  if (done) { towerKey = "done"; return; }
+
+  const sweep = clamp(p / 0.35, 0, 1);                       // rows lit so far
+  const pitch = Math.round(6 + 26 * Math.pow(1 - clamp((p - 0.25) / 0.6, 0, 1), 1.3)); // 32px down to 6px
+  const warm = clamp((p - 0.45) / 0.45, 0, 1) ** 1.4;         // amber to true colour
+  const key = `${pitch}:${Math.round(sweep * 40)}:${Math.round(warm * 24)}`;
+  if (key === towerKey && !force) return;
+  towerKey = key;
+
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   const cw = Math.round(r.width), ch = Math.round(r.height);
-  if (towerCanvas.width !== cw || towerCanvas.height !== ch) { towerCanvas.width = cw; towerCanvas.height = ch; }
-  // the same crop as object-fit: cover at 60% 40%
+  if (towerCanvas.width !== cw * dpr || towerCanvas.height !== ch * dpr) {
+    towerCanvas.width = cw * dpr; towerCanvas.height = ch * dpr;
+  }
+  towerCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  // same crop as object-fit: cover at 60% 40%
   const iw = towerImg.naturalWidth, ih = towerImg.naturalHeight;
   const scale = Math.max(cw / iw, ch / ih);
   const sw = cw / scale, sh = ch / scale;
   const sx = (iw - sw) * 0.6, sy = (ih - sh) * 0.4;
-  const cols = Math.ceil(cw / block), rows = Math.ceil(ch / block);
+  const cols = Math.ceil(cw / pitch), rows = Math.ceil(ch / pitch);
   towerSmall.width = cols; towerSmall.height = rows;
   const sctx = towerSmall.getContext("2d", { willReadFrequently: true });
   sctx.drawImage(towerImg, sx, sy, sw, sh, 0, 0, cols, rows);
   const px = sctx.getImageData(0, 0, cols, rows).data;
-  const gap = Math.max(1, Math.round(block * 0.12));
+
   towerCtx.fillStyle = "#000";
   towerCtx.fillRect(0, 0, cw, ch);
-  for (let y = 0; y < rows; y++) for (let x = 0; x < cols; x++) {
-    const k = (y * cols + x) * 4;
-    const salt = ((x * 73856093) ^ (y * 19349663)) % 1000 / 1000;
-    const [cr, cg, cb] = chatColour(px[k], px[k + 1], px[k + 2], Math.abs(salt));
-    const mix = (a, b2) => Math.round(a + (b2 - a) * real);
-    towerCtx.fillStyle = `rgb(${mix(cr, px[k])},${mix(cg, px[k + 1])},${mix(cb, px[k + 2])})`;
-    towerCtx.fillRect(x * block, y * block, block - gap, block - gap);
+  const litRows = Math.ceil(rows * sweep);
+  const radius = pitch * 0.42;
+  const round = pitch >= 9;
+  for (let y = 0; y < rows; y++) {
+    const lit = y < litRows;
+    for (let x = 0; x < cols; x++) {
+      const k = (y * cols + x) * 4;
+      let c;
+      if (!lit) c = UNLIT;
+      else {
+        const salt = Math.abs(((x * 73856093) ^ (y * 19349663)) % 1000) / 1000;
+        const led = chatColour(px[k], px[k + 1], px[k + 2], salt);
+        c = [0, 1, 2].map(i => Math.round(led[i] + (px[k + i] - led[i]) * warm));
+      }
+      towerCtx.fillStyle = `rgb(${c[0]},${c[1]},${c[2]})`;
+      const cx = x * pitch + pitch / 2, cy = y * pitch + pitch / 2;
+      if (round) {
+        towerCtx.beginPath();
+        towerCtx.arc(cx, cy, radius, 0, Math.PI * 2);
+        towerCtx.fill();
+      } else {
+        towerCtx.fillRect(x * pitch, y * pitch, pitch - 1, pitch - 1);
+      }
+    }
   }
 }
 towerImg.loading = "eager";
@@ -308,35 +208,24 @@ function onScroll() {
   if (ticking) return;
   ticking = true;
   requestAnimationFrame(() => {
-    positionReel();
-    driftPictures();
     drawTower();
+    playFilm();
     ticking = false;
   });
 }
 window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("resize", () => { layoutReel(); layoutScan(); drawTower(true); onScroll(); });
-
-// ================= REVEALS =================
-document.querySelectorAll("[data-reveal]").forEach(group => {
-  [...group.children].forEach((child, k) => child.style.setProperty("--k", k));
-});
-if ("IntersectionObserver" in window && !reduceMotion) {
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
-    });
-  }, { rootMargin: "0px 0px -12% 0px", threshold: 0.1 });
-  document.querySelectorAll("[data-reveal]").forEach(el => io.observe(el));
-} else {
-  document.querySelectorAll("[data-reveal]").forEach(el => el.classList.add("in"));
-}
+window.addEventListener("resize", () => { layoutScan(); drawTower(true); onScroll(); });
 
 // ================= MODRINTH DOWNLOADS =================
+// The headline figure is an LED odometer: every digit rolls into place when the panel comes into view,
+// and rolls again whenever the live count moves. The exact count runs up beside a blinking live LED.
 const dl = {
-  figure: document.getElementById("dl-figure"),
+  odo: document.getElementById("dl-figure"),
+  wrap: document.getElementById("dl-figure-wrap"),
   exact: document.getElementById("dl-exact"),
   followers: document.getElementById("dl-followers"),
+  board: document.querySelector(".calc-board"),
+  row: document.getElementById("row-dl"),
   shown: 0,
   value: null,
   seen: false
@@ -344,21 +233,68 @@ const dl = {
 
 const millions = n => (Math.floor(n / 1e4) / 100).toFixed(2);
 
-function paintDownloads(n) {
-  dl.figure.textContent = millions(n);
-  dl.exact.textContent = fmt(Math.round(n));
+// Each digit is a strip of 0–9 three times over, so a roll can spin past zero before it lands
+function buildOdo(text) {
+  dl.odo.textContent = "";
+  [...text].forEach(ch => {
+    const cell = document.createElement("span");
+    // the decimal point is drawn as one square LED; Doto's own reads as a comma at this size
+    if (!/\d/.test(ch)) { cell.className = ch === "." ? "odo-dot" : "odo-sep"; if (ch !== ".") cell.textContent = ch; dl.odo.appendChild(cell); return; }
+    cell.className = "odo-d";
+    cell.dataset.d = ch;
+    const strip = document.createElement("span");
+    strip.className = "odo-strip";
+    strip.textContent = "012345678901234567890123456789";
+    strip.style.transform = `translateY(-${Number(ch) * 1}em)`;
+    cell.appendChild(strip);
+    dl.odo.appendChild(cell);
+  });
+}
+
+function rollOdo(text, fromZero) {
+  const digits = [...dl.odo.querySelectorAll(".odo-d")];
+  const target = [...text].filter(c => /\d/.test(c));
+  if (digits.length !== target.length) { buildOdo(text); return rollOdo(text, true); }
+  dl.wrap.setAttribute("aria-label", `${text} million downloads`);
+  digits.forEach((cell, k) => {
+    const strip = cell.firstChild;
+    const from = fromZero ? 0 : Number(cell.dataset.d);
+    const to = Number(target[k]);
+    const changed = from !== to;
+    cell.dataset.d = to;
+    if (reduceMotion) { strip.style.transition = "none"; strip.style.transform = `translateY(-${to}em)`; return; }
+    if (!fromZero && !changed) return;
+    // later digits spin more and land later, like a counter settling
+    const spins = fromZero ? 2 : 1;
+    strip.style.transition = "none";
+    strip.style.transform = `translateY(-${from}em)`;
+    void strip.offsetHeight;
+    strip.style.transition = `transform ${1100 + k * 260}ms cubic-bezier(.16, 1, .3, 1)`;
+    strip.style.transform = `translateY(-${spins * 10 + to}em)`;
+    cell.classList.remove("bump");
+    void cell.offsetWidth;
+    cell.classList.add("bump");
+  });
 }
 
 function countTo(target, duration) {
   const start = dl.shown, t0 = performance.now();
-  if (reduceMotion) { dl.shown = target; paintDownloads(target); return; }
+  if (reduceMotion) { dl.shown = target; dl.exact.textContent = fmt(target); return; }
   const tick = now => {
     const t = clamp((now - t0) / duration, 0, 1);
     dl.shown = start + (target - start) * (1 - Math.pow(1 - t, 4));
-    paintDownloads(dl.shown);
+    dl.exact.textContent = fmt(Math.round(dl.shown));
     if (t < 1) requestAnimationFrame(tick);
   };
   requestAnimationFrame(tick);
+}
+
+function showFigures(fromZero) {
+  if (dl.value === null) return;
+  rollOdo(millions(dl.value), fromZero);
+  if (fromZero) dl.shown = 0;
+  countTo(dl.value, fromZero ? 2200 : 1200);
+  if (fromZero && !reduceMotion) dl.board.querySelectorAll("[data-flap]").forEach((el, k) => flap(el, 300 + k * 140));
 }
 
 const LOADER_NAMES = { fabric: "Fabric", forge: "Forge", neoforge: "NeoForge", paper: "Paper", quilt: "Quilt", bukkit: "Bukkit", spigot: "Spigot" };
@@ -370,29 +306,37 @@ async function loadDownloads() {
     if (!response.ok) throw new Error(response.status);
     const project = await response.json();
     const first = dl.value === null;
+    const moved = !first && project.downloads !== dl.value;
     dl.value = project.downloads;
+    dl.row.textContent = `${millions(dl.value)}M DL`;
     dl.followers.textContent = fmt(project.followers);
-    document.getElementById("calc-loaders").textContent = listOf(project.loaders.map(l => LOADER_NAMES[l] || l));
+    document.getElementById("calc-loader-count").textContent = project.loaders.length;
+    document.getElementById("calc-loaders").textContent = `${listOf(project.loaders.map(l => LOADER_NAMES[l] || l))}.`;
     const versions = project.game_versions;
-    if (versions.length) document.getElementById("calc-versions").textContent = `${versions[0]} to ${versions.at(-1)}`;
+    if (versions.length) document.getElementById("calc-versions").textContent = `${versions[0]}-${versions.at(-1)}`;
     if (first) {
-      paintDownloads(dl.value);
-      if (dl.seen) { dl.shown = 0; countTo(dl.value, 1800); } else dl.shown = dl.value;
-    } else if (dl.value !== Math.round(dl.shown)) {
-      countTo(dl.value, 1200);
+      buildOdo(millions(dl.value));
+      dl.exact.textContent = fmt(dl.value);
+      dl.shown = dl.value;
+      if (dl.seen) showFigures(true);
+    } else if (moved) {
+      // the live count ticked: roll just the digits that changed, and refresh the board row
+      showFigures(false);
+      if (!reduceMotion) flap(dl.row, 0);
     }
   } catch (error) {
     console.error("Failed to load Modrinth downloads:", error);
   }
 }
 
+buildOdo(dl.odo.textContent);
 if ("IntersectionObserver" in window) {
-  new IntersectionObserver((entries, obs) => {
-    if (!entries[0].isIntersecting) return;
+  // roll again each time the panel comes back into view
+  new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
     dl.seen = true;
-    if (dl.value !== null) { dl.shown = 0; countTo(dl.value, 1800); }
-    obs.disconnect();
-  }, { threshold: 0.35 }).observe(document.getElementById("downloads"));
+    showFigures(true);
+  }, { threshold: 0.45 }).observe(document.getElementById("downloads"));
 }
 
 loadDownloads();
@@ -549,56 +493,6 @@ chatForm.addEventListener("submit", e => {
 document.querySelectorAll(".chat-suggest button").forEach(b => {
   b.addEventListener("click", () => submit(b.dataset.try));
 });
-
-// ================= OTHER PROJECTS =================
-const names = [...document.querySelectorAll(".name")];
-const previewFrame = document.querySelector(".preview-frame");
-const previewText = document.querySelector(".preview-text");
-const layers = names.map(name => {
-  const layer = document.createElement("div");
-  layer.className = "preview-layer";
-  layer.append(...[...name.querySelector(".name-pic").childNodes].map(n => n.cloneNode(true)));
-  previewFrame.appendChild(layer);
-  return layer;
-});
-
-function activate(index) {
-  names.forEach((n, k) => n.classList.toggle("is-active", k === index));
-  layers.forEach((l, k) => l.classList.toggle("show", k === index));
-  previewText.textContent = names[index].querySelector(".name-text").textContent;
-}
-names.forEach((name, k) => {
-  const link = name.querySelector(".name-link");
-  name.querySelector(".name-row").addEventListener("pointerenter", () => activate(k));
-  link.addEventListener("focus", () => activate(k));
-});
-activate(0);
-
-// Batcher's scan line runs the height of its slip
-function layoutScan() {
-  document.querySelectorAll(".slip").forEach(slip => {
-    slip.style.setProperty("--scan-h", `${slip.clientHeight - 3}px`);
-  });
-}
-
-// The projects take turns in the preview until someone points at one
-let rotation = null;
-function startRotation() {
-  if (reduceMotion || !isDesktop()) return;
-  clearInterval(rotation);
-  rotation = setInterval(() => {
-    const current = names.findIndex(n => n.classList.contains("is-active"));
-    activate((current + 1) % names.length);
-  }, 3600);
-}
-const namesList = document.querySelector(".names");
-namesList.addEventListener("pointerenter", () => clearInterval(rotation));
-namesList.addEventListener("pointerleave", startRotation);
-if ("IntersectionObserver" in window) {
-  new IntersectionObserver(([e]) => { if (e.isIntersecting) startRotation(); else clearInterval(rotation); })
-    .observe(document.getElementById("projects"));
-}
-
 // The reply slip's QR block and the order Batcher reads its fields in
 document.querySelectorAll(".qr").forEach(qr => {
   const n = 21;
@@ -627,13 +521,6 @@ function readSlip(remit) {
     el.classList.add("read");
   });
 }
-const _activate = activate;
-activate = index => {
-  _activate(index);
-  const remit = layers[index].querySelector(".remit");
-  if (remit) { layoutScan(); readSlip(remit); }
-};
-
 // ================= SIDEFLICK =================
 // A sample game: scrolling plays the film, each question pops at its scene
 const sf = document.getElementById("sideflick");
@@ -662,7 +549,6 @@ function playFilm() {
     sfPins[k].classList.toggle("hit", k <= latest);
   });
 }
-window.addEventListener("scroll", () => requestAnimationFrame(playFilm), { passive: true });
 
 sf.querySelectorAll(".sf-options button").forEach(button => {
   button.addEventListener("click", () => {
@@ -688,37 +574,56 @@ sf.querySelectorAll(".sf-options button").forEach(button => {
 });
 
 // ================= LIVE ACTIVITY =================
+// The status I post from my phone (a gist), with its picture, shown in the top strip
 async function getLiveActivity() {
   try {
     const response = await fetch("https://api.github.com/gists/87faa18d1808b0282fd22c7d7f54ff02", {
       headers: { "Accept": "application/vnd.github.v3+json" }
     });
+    if (!response.ok) throw new Error(response.status);
     const gist = await response.json();
     const current = JSON.parse(gist.files["activities.json"].content).activities.at(-1);
     if (!current) return;
-    const minutes = Math.floor((Date.now() - new Date(current.date)) / 60000);
-    let ago;
-    if (minutes < 60) ago = `${minutes} minute${minutes === 1 ? "" : "s"} ago`;
-    else if (minutes < 1440) ago = `${Math.floor(minutes / 60)} hour${minutes < 120 ? "" : "s"} ago`;
-    else if (minutes < 10080) ago = `${Math.floor(minutes / 1440)} day${minutes < 2880 ? "" : "s"} ago`;
-    else return;
+    const minutes = Math.max(0, Math.floor((Date.now() - new Date(current.date)) / 60000));
+    const unit = (n, word) => `${n} ${word}${n === 1 ? "" : "s"} ago`;
+    // the time shows only while the status is under a week old, as it always has
+    let ago = "";
+    if (minutes < 1) ago = "just now";
+    else if (minutes < 60) ago = unit(minutes, "min");
+    else if (minutes < 1440) ago = unit(Math.floor(minutes / 60), "hour");
+    else if (minutes < 10080) ago = unit(Math.floor(minutes / 1440), "day");
+    const box = document.getElementById("live-activity");
+    if (current.imageURL) {
+      const img = new Image(32, 32);
+      img.className = "status-img";
+      img.alt = "";
+      img.src = current.imageURL;
+      box.querySelector(".status-row").prepend(img);
+    }
     document.getElementById("status-text").textContent = current.status;
-    document.getElementById("status-time").textContent = `, ${ago}`;
-    document.getElementById("live-activity").hidden = false;
+    document.getElementById("status-time").textContent = ago;
+    box.title = ago ? `${current.status}, ${ago}` : current.status;
+    box.hidden = false;
   } catch (error) {
     console.error("Failed to get live activity:", error);
   }
 }
 
+// Batcher's scan line runs the height of its slip, and reads the slip when it comes into view
+function layoutScan() {
+  document.querySelectorAll(".slip").forEach(slip => {
+    slip.style.setProperty("--scan-h", `${slip.clientHeight - 3}px`);
+  });
+}
+if ("IntersectionObserver" in window) {
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) { layoutScan(); readSlip(e.target); }
+  }, { threshold: 0.5 }).observe(document.querySelector(".remit"));
+}
+
 // ================= START =================
-// Draw empty squares first so the reel has its shape before the data arrives
-drawMosaic();
-drawAll([], {});
-layoutReel();
 layoutScan();
 playFilm();
 onScroll();
-if (document.fonts) document.fonts.ready.then(() => { layoutReel(); onScroll(); });
 loadContributionGraph();
-loadProfile();
 getLiveActivity();
