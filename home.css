@@ -191,13 +191,14 @@ button { font: inherit; color: inherit; }
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--d0);
-  transition: background-color 500ms ease, transform 200ms ease;
+  transition: background-color 500ms ease, transform 120ms ease-out;
 }
 .graph.lit .cell.l1 { background: var(--d1); }
 .graph.lit .cell.l2 { background: var(--d2); }
 .graph.lit .cell.l3 { background: var(--d3); }
 .graph.lit .cell.l4 { background: var(--d4); }
-.graph.lit .cell { transition-delay: calc(var(--i, 0) * 8ms); }
+/* the lighting sweeps left to right; hover stays instant */
+.graph.lit .cell { transition-delay: calc(var(--i, 0) * 8ms), 0s; }
 .cell.pad { background: transparent; }
 .cell.future { opacity: .35; }
 .cell[data-tip]:hover { transform: scale(1.5); }
